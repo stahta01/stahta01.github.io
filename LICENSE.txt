@@ -1,0 +1,2 @@
+Have not decided on a default License, yet.
+Likely will have multiple open source Licenses used.
