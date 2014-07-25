@@ -1,0 +1,73 @@
+List of VLC functions NOT used in "VLC Resume Media V2"
+   vlc.msg.dbg()
+   vlc.config.datadir()
+   vlc.config.get()
+   vlc.config.set()
+   vlc.net.url_parse()
+   vlc.strings.decode_uri()
+   vlc.net.stat()
+   vlc.stream()
+List of VLC functions maybe used differently in "VLC Resume Media V2"
+   vlc.deactivate()
+List of VLC functions used in "VLC Resume Media V2"
+   vlc.config.userdatadir()
+   vlc.dialog()
+   vlc.input.item():name()
+   vlc.input.item():uri()
+   vlc.input.item():duration()
+   vlc.var.get(inpt, "time")
+   list:clear()
+   list:add_value(tabletitle, 0)
+   label_msg:set_text(busylbl)
+   label_msg:set_text(busy2lbl)
+   dlg:add_button
+   dlg:show()
+   dlg:set_title("Resume Media Table "..filenum)
+   dlg:set_title("Resume Media")
+   dlg:add_list(1,3,10,lp)
+   dlg:add_label("",1,lp+10,10,1)
+   dlg:add_label("hello world",1,lp+11,10,1)  -- for testing
+List of VLC Extension functions
+   activate()
+   deactivate()
+   input_changed()
+   meta_changed()
+   descriptor()
+List of likely normal functions
+check_names
+click_button1
+click_button2
+click_button3
+click_button4
+combine_tables
+delete
+find_in_table
+flip_table
+get_file
+get_options
+get_tables
+getfilename
+getplaylist
+hhmmss
+integer
+is_selection
+list_update
+lock_table
+makeplaylist
+move_bottom
+move_completed
+move_top
+msg
+msgl
+open_table
+read_names
+secs
+set_time
+setdlgmode
+sort_by_name
+sort_by_time
+sort_idxs
+stable_sort
+tables_update
+trim
+write_names
