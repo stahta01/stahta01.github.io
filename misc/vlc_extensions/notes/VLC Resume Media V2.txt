@@ -29,45 +29,47 @@ List of VLC functions used in "VLC Resume Media V2"
    dlg:add_label("hello world",1,lp+11,10,1)  -- for testing
 List of VLC Extension functions
    activate()
+   close()
    deactivate()
+   descriptor()
    input_changed()
    meta_changed()
-   descriptor()
+   playing_changed()
 List of likely normal functions
-check_names
-click_button1
-click_button2
-click_button3
-click_button4
-combine_tables
-delete
-find_in_table
-flip_table
-get_file
-get_options
-get_tables
-getfilename
-getplaylist
-hhmmss
-integer
-is_selection
-list_update
-lock_table
-makeplaylist
-move_bottom
-move_completed
-move_top
-msg
-msgl
-open_table
-read_names
-secs
-set_time
-setdlgmode
-sort_by_name
-sort_by_time
-sort_idxs
-stable_sort
-tables_update
-trim
-write_names
+   check_names
+   click_button1
+   click_button2
+   click_button3
+   click_button4
+   combine_tables
+   delete
+   find_in_table
+   flip_table
+   get_file
+   get_options
+   get_tables
+   getfilename
+   getplaylist
+   hhmmss
+   integer
+   is_selection
+   list_update
+   lock_table
+   makeplaylist
+   move_bottom
+   move_completed
+   move_top
+   msg
+   msgl
+   open_table
+   read_names
+   secs
+   set_time
+   setdlgmode
+   sort_by_name
+   sort_by_time
+   sort_idxs
+   stable_sort
+   tables_update
+   trim
+   write_names
