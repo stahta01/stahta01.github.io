@@ -1,0 +1,5 @@
+makefile_compile_file:
+   See CB Forum thread http://forums.codeblocks.org/index.php/topic,19479.0.html
+   Fixes Custom makefile projects so "Build File" uses the makefile.
+   Needs more testing on Windows and testing on other OSes has NOT been done.
+   Note: Did not try to fix "Clean file" because no idea what it should do.
