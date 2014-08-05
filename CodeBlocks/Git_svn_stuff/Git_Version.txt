@@ -1,0 +1,2 @@
+version 1.8.5.2-preview20131230
+git version 1.8.5.2.msysgit.0
