@@ -1,0 +1,5 @@
+cb_src_sdk_templatemanager_cpp:
+   Problem: CB can NOT export the CB projects as a User Template with the default filename.
+   This is because the default name has a ":" in it.
+   The patch uses wx's GetForbiddenChars to remove those chars.
+   
