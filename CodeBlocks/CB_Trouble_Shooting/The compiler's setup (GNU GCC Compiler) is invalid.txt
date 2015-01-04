@@ -1,0 +1,28 @@
+Posted on http://forums.codeblocks.org/index.php/topic,18075.0.html
+
+The compiler's setup (GNU GCC Compiler) is invalid
+
+Hint: Goto "Settings->Compiler and debugger...->Global compiler settings->GNU GCC Compiler->Toolchain executables" and fix the compiler's setup.
+
+Version 12.11 how to fix.
+NOTE: You must have a good MinGW GCC Installation on your Computer
+
+1. "Setting" -> "Compiler..."
+2. Select "GNU GCC Compiler" in "Selected Compiler" list
+3. Click on "Set as Default" Optional but strongly recommend step.
+
+First and faster way to fix issue; erases any customized settings for this Compiler.
+  4. Click on "Result Defaults"
+
+Second way to fix issue; does NOT erase any customized settings for this Compiler.
+  4. Toolchain executables
+  5. Click on "Auto-Detect"
+
+Third way to manually setup MinGW GCC
+  Do steps 1 thru 3 from above
+  4. Select "Toolchain executables" tab
+  5. Select "Program Files" tab
+  5. Use "..." button to set path to the MinGW GCC Compiler folder that contains the bin sub folder.
+  6. Use "..." button beside "C Compiler" to set the correct exe name
+  7. Set the correct exe names for the rest of the "Program Files"
+  
