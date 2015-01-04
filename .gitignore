@@ -1,2 +1,4 @@
-/*.bak
+*.bak
 /CodeBlocks/CB_Trouble_Shooting/MinGWHelloWorld/*.layout
+/CodeBlocks/CB_Trouble_Shooting/MinGWHelloWorld/bin
+/CodeBlocks/CB_Trouble_Shooting/MinGWHelloWorld/obj
