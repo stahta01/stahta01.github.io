@@ -13,6 +13,7 @@ Part II. Run the CB Script Project to display CB Configuration Info.
 
 Part III. Run the test batch files to confirm a good MinGW Installation
    A. Download zipped file.
+      https://github.com/stahta01/stahta01.github.io/blob/master/CodeBlocks/CB_Trouble_Shooting/MinGWHelloWorld.zip
    B. Unzip the file.
    C. Read the readme.txt file.
    D. Run the batch files.
