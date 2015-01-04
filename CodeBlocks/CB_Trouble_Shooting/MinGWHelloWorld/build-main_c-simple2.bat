@@ -1,8 +1,9 @@
 SETLOCAL
 
-SET CB_GCC_TOOLCHAIN=
+SET CB_GCC_TOOLCHAIN=C:\Program Files (x86)\CodeBlocks\MinGW
 
 if "%PROCESSOR_ARCHITECTURE%"=="x86" (SET CB_GCC_TOOLCHAIN=C:\Program Files\CodeBlocks\MinGW)
+
 
 SET CB_GCC_TOOL_GCC=mingw32-gcc.exe
 SET CB_GCC_TOOL_GXX=mingw32-g++.exe
