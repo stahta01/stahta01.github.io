@@ -1,3 +1,5 @@
+Online URL https://github.com/stahta01/stahta01.github.io/blob/master/CodeBlocks/CB_Trouble_Shooting/The%20compiler%27s%20setup%20%28GNU%20GCC%20Compiler%29%20is%20invalid.txt
+
 Posted on http://forums.codeblocks.org/index.php/topic,18075.0.html
 
 The compiler's setup (GNU GCC Compiler) is invalid
