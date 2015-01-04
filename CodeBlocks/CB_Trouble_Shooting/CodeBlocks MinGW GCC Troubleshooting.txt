@@ -1,0 +1,18 @@
+Note: These parts are listed in chronological as written order; 
+   you can use a different order.
+
+Part I. Check the CB Toolchain Settings.
+   Follow "The compiler's setup (GNU GCC Compiler) is invalid.txt"
+   URL: https://github.com/stahta01/stahta01.github.io/blob/master/CodeBlocks/CB_Trouble_Shooting/The%20compiler%27s%20setup%20%28GNU%20GCC%20Compiler%29%20is%20invalid.txt
+
+Part II. Run the CB Script Project to display CB Configuration Info.
+   A. Download zipped file.
+      https://github.com/stahta01/stahta01.github.io/blob/master/CodeBlocks/CB_Trouble_Shooting/testgcc-win.zip
+   B. Unzip the file.
+   C. Build the CB Project in the folder
+
+Part III. Run the test batch files to confirm a good MinGW Installation
+   A. Download zipped file.
+   B. Unzip the file.
+   C. Read the readme.txt file.
+   D. Run the batch files.
