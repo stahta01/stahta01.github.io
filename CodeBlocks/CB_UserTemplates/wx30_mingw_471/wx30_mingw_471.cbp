@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wx30_mingw_471" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/$(TARGET_NAME)/wx30" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/$(TARGET_NAME)/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll/$(WX_TOOLKIT)$(WX_SUFFIX)" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core" />
+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="wxpng$(WX_DEBUG_SUFFIX)" />
+					<Add library="wxzlib$(WX_DEBUG_SUFFIX)" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll" />
+				</Linker>
+				<Environment>
+					<Variable name="WX_COMPILER" value="gcc" />
+					<Variable name="WX_COMPILER_VERSION" value="471TDM" />
+					<Variable name="WX_DEBUG_SUFFIX" value="d" />
+					<Variable name="WX_SUFFIX" value="ud" />
+					<Variable name="WX_TOOLKIT" value="msw" />
+					<Variable name="WX_VERSION" value="30" />
+				</Environment>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/$(TARGET_NAME)/wx30" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/$(TARGET_NAME)/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll/$(WX_TOOLKIT)$(WX_SUFFIX)" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core" />
+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="wxpng$(WX_DEBUG_SUFFIX)" />
+					<Add library="wxzlib$(WX_DEBUG_SUFFIX)" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll" />
+				</Linker>
+				<Environment>
+					<Variable name="WX_COMPILER" value="gcc" />
+					<Variable name="WX_COMPILER_VERSION" value="471TDM" />
+					<Variable name="WX_DEBUG_SUFFIX" value="" />
+					<Variable name="WX_SUFFIX" value="u" />
+					<Variable name="WX_TOOLKIT" value="msw" />
+					<Variable name="WX_VERSION" value="30" />
+				</Environment>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Debug;Release;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DWXUSINGDLL" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add directory="$(#wxbase30.include)" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(#wxbase30.include)" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-mthreads" />
+		</Linker>
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="wx30App.cpp" />
+		<Unit filename="wx30App.h" />
+		<Unit filename="wx30Main.cpp" />
+		<Unit filename="wx30Main.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
