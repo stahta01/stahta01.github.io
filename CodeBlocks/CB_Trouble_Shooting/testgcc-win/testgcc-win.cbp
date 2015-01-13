@@ -55,6 +55,7 @@
 					<Add before='CMD /C REM PROCESSOR_ARCHITECTURE &quot;%PROCESSOR_ARCHITECTURE%&quot;' />
 					<Add before='CMD /C REM GCC_EXEC_PREFIX &quot;%GCC_EXEC_PREFIX%&quot;' />
 					<Add before='CMD /C REM GCC_ROOT &quot;%GCC_ROOT%&quot;' />
+					<Add before='CMD /C REM BINUTILS_ROOT &quot;%BINUTILS_ROOT%&quot;' />
 					<Add before='CMD /C REM COMPILER_PATH &quot;%COMPILER_PATH%&quot;' />
 					<Add before='CMD /C REM LIBRARY_PATH &quot;%LIBRARY_PATH%&quot;' />
 					<Add before='CMD /C REM CPATH &quot;%CPATH%&quot;' />
