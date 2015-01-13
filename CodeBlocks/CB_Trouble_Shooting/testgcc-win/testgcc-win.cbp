@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="testgcc win" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="compiler_toolchain">
+				<Option type="4" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="CMD /C where where" />
+					<Add before="CMD /C REM TARGET_COMPILER_DIR" />
+					<Add before="CMD /C echo $(TARGET_COMPILER_DIR)" />
+					<Add before="CMD /C REM TARGET_CC" />
+					<Add before="CMD /C where $(TARGET_CC)" />
+					<Add before="CMD /C REM TARGET_CPP" />
+					<Add before="CMD /C where $(TARGET_CPP)" />
+					<Add before="CMD /C REM TARGET_LD" />
+					<Add before="CMD /C where $(TARGET_LD)" />
+					<Add before="CMD /C REM TARGET_LIB" />
+					<Add before="CMD /C where $(TARGET_LIB)" />
+				</ExtraCommands>
+			</Target>
+			<Target title="language">
+				<Option output="testgcc-win" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<ExtraCommands>
+					<Add before="CMD /C REM CB VAR LANGUAGE $(LANGUAGE)" />
+					<Add before="CMD /C REM CB VAR ENCODING $(ENCODING)" />
+					<Add before='CMD /C REM LANG &quot;%LANG%&quot;' />
+					<Add before='CMD /C REM LC_CTYPE &quot;%LC_CTYPE%&quot;' />
+					<Add before='CMD /C REM LC_MESSAGES &quot;%LC_MESSAGES%&quot;' />
+					<Add before='CMD /C REM LC_ALL &quot;%LC_ALL%&quot;' />
+				</ExtraCommands>
+			</Target>
+			<Target title="compiler_OS_variables">
+				<Option output="testgcc-win" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<ExtraCommands>
+					<Add before="CMD /C ver" />
+					<Add before='CMD /C REM PROCESSOR_ARCHITECTURE &quot;%PROCESSOR_ARCHITECTURE%&quot;' />
+					<Add before='CMD /C REM GCC_EXEC_PREFIX &quot;%GCC_EXEC_PREFIX%&quot;' />
+					<Add before='CMD /C REM COMPILER_PATH &quot;%COMPILER_PATH%&quot;' />
+					<Add before='CMD /C REM LIBRARY_PATH &quot;%LIBRARY_PATH%&quot;' />
+					<Add before='CMD /C REM CPATH &quot;%CPATH%&quot;' />
+					<Add before='CMD /C REM C_INCLUDE_PATH &quot;%C_INCLUDE_PATH%&quot;' />
+					<Add before='CMD /C REM CPLUS_INCLUDE_PATH &quot;%CPLUS_INCLUDE_PATH%&quot;' />
+					<Add before='CMD /C REM TMPDIR &quot;%TMPDIR%&quot;' />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="compiler_toolchain;language;compiler_OS_variables;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Extensions>
+			<code_completion />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
