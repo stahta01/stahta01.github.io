@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wx30_msvc_100" />
+		<Option pch_mode="2" />
+		<Option compiler="msvc10" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/$(TARGET_NAME)/wx30" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/$(TARGET_NAME)/" />
+				<Option type="0" />
+				<Option compiler="msvc10" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="/MDd" />
+					<Add option="/D_DEBUG" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll/$(WX_TOOLKIT)$(WX_SUFFIX)" />
+				</Compiler>
+				<Linker>
+					<Add library="wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core" />
+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="wxpng$(WX_DEBUG_SUFFIX)" />
+					<Add library="wxzlib$(WX_DEBUG_SUFFIX)" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll" />
+				</Linker>
+				<Environment>
+					<Variable name="WX_COMPILER" value="vc" />
+					<Variable name="WX_COMPILER_VERSION" value="100" />
+					<Variable name="WX_DEBUG_SUFFIX" value="d" />
+					<Variable name="WX_SUFFIX" value="ud" />
+					<Variable name="WX_TOOLKIT" value="msw" />
+					<Variable name="WX_VERSION" value="30" />
+				</Environment>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/$(TARGET_NAME)/wx30" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/$(TARGET_NAME)/" />
+				<Option type="0" />
+				<Option compiler="msvc10" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="/MD" />
+					<Add option="/DNDEBUG" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll/$(WX_TOOLKIT)$(WX_SUFFIX)" />
+				</Compiler>
+				<Linker>
+					<Add option="/NODEFAULTLIB:libcmt.lib" />
+					<Add library="wx$(WX_TOOLKIT)$(WX_VERSION)$(WX_SUFFIX)_core" />
+					<Add library="wxbase$(WX_VERSION)$(WX_SUFFIX)" />
+					<Add library="wxpng$(WX_DEBUG_SUFFIX)" />
+					<Add library="wxzlib$(WX_DEBUG_SUFFIX)" />
+					<Add directory="$(#wxbase30.lib)/$(WX_COMPILER)$(WX_COMPILER_VERSION)_dll" />
+					<Add directory="$(#wxbase30.bin)" />
+				</Linker>
+				<Environment>
+					<Variable name="WX_COMPILER" value="vc" />
+					<Variable name="WX_COMPILER_VERSION" value="100" />
+					<Variable name="WX_DEBUG_SUFFIX" value="" />
+					<Variable name="WX_SUFFIX" value="u" />
+					<Variable name="WX_TOOLKIT" value="msw" />
+					<Variable name="WX_VERSION" value="30" />
+				</Environment>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Debug;Release;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="/EHc" />
+			<Add option="/EHs" />
+			<Add option="/W3" />
+			<Add option="/Zc:auto" />
+			<Add option="/Zc:wchar_t" />
+			<Add option="/DWIN32" />
+			<Add option="/D__WIN32__" />
+			<Add option="/D__WXMSW__" />
+			<Add option="/DWXUSINGDLL" />
+			<Add option="/DwxUSE_UNICODE" />
+			<Add option="/D_WINDOWS" />
+			<Add option="/D_CRT_SECURE_DEPRECATE" />
+			<Add option="/D_CRT_NONSTDC_NO_DEPRECATE" />
+			<Add option="/D_CRT_SECURE_NO_WARNINGS" />
+			<Add directory="$(#wxbase30.include)" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(#wxbase30.include)" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="/INCREMENTAL:NO" />
+			<Add option="/SUBSYSTEM:WINDOWS" />
+			<Add library="winmm.lib" />
+			<Add library="rpcrt4.lib" />
+		</Linker>
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="wx30App.cpp" />
+		<Unit filename="wx30App.h" />
+		<Unit filename="wx30Main.cpp" />
+		<Unit filename="wx30Main.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
