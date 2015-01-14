@@ -17,7 +17,7 @@
 					<Add directory="$(#wx30.lib)/gcc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(#wx30.lib)/gcc_dll/mswu" />
+					<Add directory="$(#wx30.lib)/gcc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</ResourceCompiler>
 				<Linker>
 					<Add library="libwxmsw30u_core.a" />
@@ -42,7 +42,7 @@
 					<Add directory="$(#wx30.lib)/gcc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(#wx30.lib)/gcc_dll/mswu" />
+					<Add directory="$(#wx30.lib)/gcc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</ResourceCompiler>
 				<Linker>
 					<Add option="-s" />
