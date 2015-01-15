@@ -13,14 +13,14 @@
 				<Option compiler="msvc10" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
+					<Add option="/MDd" />
 					<Add option="/Zi" />
 					<Add option="/D_DEBUG" />
 					<Add option="/D__WXDEBUG__" />
-					<Add option="/MDd" />
-					<Add directory="$(#wx30)/lib/vc_dll/mswud" />
+					<Add directory="$(#wx30.lib)/vc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(#wx30)/lib/vc_dll/mswud" />
+					<Add directory="$(#wx30.lib)/vc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</ResourceCompiler>
 				<Linker>
 					<Add option="/DEBUG" />
@@ -31,8 +31,13 @@
 					<Add library="wxbase30u.lib" />
 					<Add library="wxpng.lib" />
 					<Add library="wxzlib.lib" />
-					<Add directory="$(#wx30)/lib/vc_dll" />
+					<Add directory="$(#wx30.lib)/vc$(WX_COMPILER_VERSION)_dll" />
+					<Add directory="$(#wx30.bin)" />
 				</Linker>
+				<Environment>
+					<Variable name="WX_COMPILER_VERSION" value="100" />
+					<Variable name="WX_SUFFIX" value="ud" />
+				</Environment>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/wx30_vc100_dll" prefix_auto="1" extension_auto="1" />
@@ -41,14 +46,14 @@
 				<Option compiler="msvc10" />
 				<Option projectLinkerOptionsRelation="2" />
 				<Compiler>
-					<Add option="/Ox" />
-					<Add option="/DNDEBUG" />
 					<Add option="/MD" />
 					<Add option="/O2" />
-					<Add directory="$(#wx30)/lib/vc_dll/mswu" />
+					<Add option="/Ox" />
+					<Add option="/DNDEBUG" />
+					<Add directory="$(#wx30.lib)/vc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</Compiler>
 				<ResourceCompiler>
-					<Add directory="$(#wx30)/lib/vc_dll/mswu" />
+					<Add directory="$(#wx30.lib)/vc$(WX_COMPILER_VERSION)_dll/msw$(WX_SUFFIX)" />
 				</ResourceCompiler>
 				<Linker>
 					<Add option="/NODEFAULTLIB:libcmt.lib" />
@@ -57,29 +62,34 @@
 					<Add library="wxbase30u.lib" />
 					<Add library="wxpng.lib" />
 					<Add library="wxzlib.lib" />
-					<Add directory="$(#wx30)/lib/vc_dll" />
+					<Add directory="$(#wx30.lib)/vc$(WX_COMPILER_VERSION)_dll" />
+					<Add directory="$(#wx30.bin)" />
 				</Linker>
+				<Environment>
+					<Variable name="WX_COMPILER_VERSION" value="100" />
+					<Variable name="WX_SUFFIX" value="u" />
+				</Environment>
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="/EHc" />
+			<Add option="/EHs" />
+			<Add option="/W3" />
+			<Add option="/Zc:auto" />
+			<Add option="/Zc:wchar_t" />
 			<Add option="/DWIN32" />
 			<Add option="/D__WIN32__" />
 			<Add option="/D__WXMSW__" />
 			<Add option="/DWXUSINGDLL" />
 			<Add option="/DwxUSE_UNICODE" />
 			<Add option="/D_WINDOWS" />
-			<Add option="/EHs" />
-			<Add option="/EHc" />
 			<Add option="/D_CRT_SECURE_DEPRECATE" />
 			<Add option="/D_CRT_NONSTDC_NO_DEPRECATE" />
 			<Add option="/D_CRT_SECURE_NO_WARNINGS" />
-			<Add option="/Zc:wchar_t" />
-			<Add option="/Zc:auto" />
-			<Add option="/W3" />
-			<Add directory="$(#wx30)/include" />
+			<Add directory="$(#wx30.include)" />
 		</Compiler>
 		<ResourceCompiler>
-			<Add directory="$(#wx30)/include" />
+			<Add directory="$(#wx30.include)" />
 		</ResourceCompiler>
 		<Linker>
 			<Add option="/INCREMENTAL:NO" />
