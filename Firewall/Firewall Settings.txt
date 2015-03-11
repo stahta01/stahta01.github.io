@@ -1,0 +1,102 @@
+Windows Firewall settings used with TinyWall;
+  Do NOT turn on "Enable Block List" it edits the hosts file.
+This is a work in progess by trial and error.
+A-Z by Path order.
+   TDM-GCC
+      tdm-gcc-webdl.exe
+        TCP out ports
+   Comodo Cleaning Essentials
+      CCE.exe
+        TCP out ports
+ Program Files
+   Belarc Advisor
+      belarcadvisor.exe
+        TCP out ports 80
+        UDP out ports 137, 161
+   BOINC Manager
+      boinc.exe
+        TCP out ports
+        Uses at least port 80
+      boincmgr.exe
+   CCleaner
+      CCleaner.exe
+   GetRight
+      GetRight.exe
+        TCP out ports
+   Git apps 
+      C:\Program Files\Git\bin\git.exe
+         currently allow outgoin UDP and TCP traffic.
+    in folder libexec\git-core\
+      git-remote-http.exe     TCP out ports 80,443
+      git-remote-https.exe    TCP out ports 80,443
+      git.exe                 TCP out port  9418
+   UltraEdit
+      Uedit32.exe
+        TCP out port 80
+   Secunia PSI 2.0
+      psia.exe
+        TCP out ports 443
+      sua.exe
+        TCP out ports 443
+      psi.exe
+        TCP out ports 443
+   RapidSVN-0.13
+      rapidsvn.exe
+        TCP out ports 80,3690
+   Mozilla Firefox
+      firefox.exe           Was Unrestricted UDP and TCP traffic.
+                            Now Allow outgoing UDP and TCP traffic.
+                            Uses at least ports 80,443
+      plugin-container.exe  Was Unrestricted UDP and TCP traffic.
+   Mozilla Thunderbird
+      thunderbird.exe
+        TCP out ports
+      plugin-container.exe
+        TCP out ports
+   SUPERAntiSpyware
+      SUPERAntiSpyware.exe
+        TCP out ports
+   Microsoft Security Client
+      MsMpEng.exe
+        TCP out ports
+   CCleaner
+      CCleaner.exe
+        TCP out ports
+   Google Drive
+      googledrivesync.exe
+        TCP out ports
+   Internet Explorer
+      iexplore.exe
+        TCP out ports
+   Malwarebytes Anti-Malware
+      mbam.exe
+        TCP out ports 80,?
+   UltraDefrag
+      ultradefrag.exe
+ Users
+   Kindle
+      Kindle.exe
+ Windows\System32
+   Local Security Authority Subsystem Service
+      lsass.exe
+   FlashPlayerPlugin
+      FlashPlayerPlugin .exe
+        TCP out ports 80,443,1111,1935,8134
+        UDP out ports 1935,19350-65535
+   Taskbar and Start Menu
+      rundll32.exe
+   Service Control Manager
+      services.exe
+   Host Process for Windows Tasks
+      taskhost.exe
+   Windows Error Reporting
+      WerFault.exe
+      wermgr.exe
+   Windows startup process
+      wininit.exe
+ System
+      System (This is a work in progress)
+        TCP out port 53, 137, 443
+        TCP in  port 443, 54000-54999
+        UDP out port 53, 137, 138
+        UDP in  port 53, 137, 161
