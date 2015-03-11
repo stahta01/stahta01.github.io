@@ -1,0 +1,30 @@
+Windows Firewall settings used with TinyWall;
+This is a work in progess by trial and error.
+ http://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
+   Flash Media Server ports
+      1935  RTMP/E            TCP
+      1935  RTMFP             UDP
+      80    RTMP, RTMPT, HTTP TCP   Flash Media Server listens for HTTP requests on port 80. Flash Media Server falls back to port 80 if a client cannot con
+      8134  HTTP              TCP   Flash Media Server forwards HTTP requests to Apache HTTP Server on port 8134.
+      1111  HTTP, RTMP        TCP   Flash Media Administration Server listens for HTTP and RTMP requests on port 1111.
+   protocol default port
+      git      9418
+      http       80
+      https     443
+      ssh        22
+      svn      3690
+   Mozilla Firefox
+       Add-Ons/Extensions
+        Distill Web Monitor (formerly AlertBox)
+        Flagfox
+        Flashblock
+        flashgot
+        Link Status Redux
+        PDF Download
+        PrintFriendly
+        Sage
+        Widevine Media Optimizer
+       Add-Ons/Plugins
+        VLC Web Plugin
+        Shockwave Flash
+        More Plugins
