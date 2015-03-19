@@ -1,0 +1,98 @@
+Translated via Google from http://www.nicolas-sanagustin.fr/index.php/2013/03/27/comment-programmer-un-pic-avec-sdcc-et-codeblocks/
+
+
+How to program a PIC with SDCC and Code :: Blocks
+
+Hello to you all !
+
+While waiting to get my equipment following the PIC programmer project - and because I no longer up so I'm looking forward - I decided to open a topic tutorials to explain some things for which it is difficult find information on the Internet . I begin this section with a tutorial explaining how to program on PIC microcontrollers - Microchip - with the SDCC compiler and development environment Code :: Blocks .
+
+To begin, I will introduce a little bit what SDCC . This is a free compiler developed for programming in C on different microcontrollers - this is called multi-target compiler. It manages various microcontroller families which a short list is available in the site 's home page : SDCC - Small Device C Compiler.
+
+On programming on target PIC , it is not fully integrated although it is quite possible to program PIC with . It must, however , in addition SDCC compiler, use another toolchain - in assembly this time - which is called GPUTILS for GNU PIC Utilities. Rest assured, you will not be forced to learn to program in assembler PIC . SDCC uses GPUTILS simply as a tool to transform its code compiled into an executable HEX file with the PIC .
+
+Note that SDCC , complementing GPUTILS , is certainly one of the best compilers for microcontrollers that exist in the field of free software.
+
+Turning now to the problem , which I will explain why this tutorial. Code :: Blocks well incorporates the concept of embedded systems, and even includes in its SDCC compiler list. However, among the proposed templates available, do not exist for the development of PIC . There are a few tutorials on the Internet to use SDCC with Code :: Blocks , but they are either outdated or incorrect - it is well known that what is on the internet never works as desired .
+
+I spent a long time searching how to set Code :: Blocks to create a custom template PIC project and it eventually proved that the solution was quite simple.
+
+For starters, if you have not already done so, download and install Code :: Blocks , and GPUTILS SDCC on their respective sites . The SDCC site recommends downloading a snapshot version if the latest stable version available is more than two months. At the time of this writing , the latest release date of July 2012 , but remember to regularly check the release of a new update - know that almost takes a snapshot day for SDCC or more.
+
+Configuring SDCC
+
+Once everything is installed , open the Code :: Blocks program and once it is started , go to " Settings "> " Compile ...". The compilers of the configuration window appears. Above, select the " SDCC Compiler " list. Then select the " Toolchain executables " tab and press the " Auto-detect " button to Code :: Blocks automatically detects the location of the SDCC compiler.
+
+We have one last thing to set before the creation of a project. We need the extension for source files compiled either " .o " not " .rel ". Scroll between tabs with the arrows to the right until you see the " Other Settings " tab. There, click the "Advanced options ...".
+
+Another window opens. Select the " Others " and verify that the value for " Object file extension" tab is a letter 'o' . If this is not the case , change the value therein - " rel " - the letter 'o' . Click " OK" to exit the advanced options and again "OK" to exit the compiler configuration .
+
+Create a PIC project
+
+Now that SDCC is configured , let's create a project . Just click on the button in the toolbar at the top left tasks and select " Project ... " from the list that appears. In the selection window project type , choose " Empty Project " and click "Go."
+
+Enter the name of your project and its location on your disk , us "Next".
+
+Select the compiler " SDCC Compiler " and check the box "Create Release configuration " is checked - personally I do not use "Debug" - then click "Finish".
+
+Your project is now created, but before programming , there are still a few things to settle.
+
+Configure the project
+
+First thing, we will configure the compiler for this project. Right - click on the project in the " Management" on the left, and select " Build Options" in the list. A window opens , select the project name in the left part of the window. On the right side , select the " Compiler settings" tab and the " Compiler Flags " tab. In the list of compiler options, all boxes should be unchecked , except :
+
+- Be verbose [ --verbose ]
+
+- Output Intel Hex ( default) [ --out - fmt - IHX ]
+
+- [ CPU ] Microchip PIC 14 -bit ... [ -mpic14 ] when using a PIC10 , PIC12 , PIC14 or PIC16 one ,
+
+OR
+
+- [ CPU ] 16-bit PIC ... [ -mpic16 ] when using a PIC18 .
+
+Now select the " Other Options" tab and write it --use- non-free to tell the compiler to search the headers corresponding to the PIC in its records of non-free headers and -pxxxxxxx to the microcontroller you use - for me using a PIC18F2550 , I take -p18f2550 .
+
+Now click on " OK" to confirm the changes. If a window asking you to confirm that you want to apply the changes , accept .
+
+There is one more step. Right-click again on the project name and this time select "Properties ...". In the new window , select the " Build targets" tab. In the right part for the attribute " type ", select " Native ". Below, for "Output filename" , replace the " .sys " with " .hex " then uncheck the boxes "Auto -generate filename prefix " and " Auto -generate filename extension ". Finally , click "OK" to exit the window.
+
+Create a file
+
+Your project is now ready for programming. This aspect will be discussed in more detail in another tutorial . In the meantime, here's a basic program to give you an overview of a C source file for microcontroller.
+
+#define __18F2550
+#include <pic18f2550.h>
+
+#pragma stack 0x200 100
+
+void main(void)
+{
+
+unsigned int i;
+
+TRISB = 0;
+
+while(1)
+{
+
+PORTBbits.RB7 = 1;
+for (i = 1; i < 1000; i++);
+PORTBbits.RB7 = 0;
+for (i = 1; i < 1000; i++);
+
+}
+
+}
+
+Obviously, we need to adapt and __18F2550 PIC18F2550 PIC as the model you use. This program simply makes to flash the LED loop that is output PORTBbits.RB7 - which is the address of an input / output port of the microcontroller will understand the you . What a dream , is not it?
+
+EDIT: Trying to make this program work with a PIC16F690 , I had the unpleasant surprise that PORTBbits.RB7 is not recognized . Do not panic, just remove " PORTBbits . "Before RB7 . Indeed, with SDCC , inputs / outputs are defined differently for PIC18F targets. We return to portability in a later lesson .
+
+You can save this project as a template to avoid having to reconfigure everything . To do this, Go to the "File" menu and select " Save project as template ...". It 'll just name the template and click "OK ". Now, when you create a project, you can simply go in the " User Templates " and choose the template to create a project on the model of the one you just created and configured.
+
+For the rest , I encourage you to read the documentation SDCC compiler and microcontroller that you use. No need to know on the fingertips , but it will allow you to familiarize yourself with the structure of the programs you need to write . Moreover, it is like that for all the development tools you'll need to use.
+
+With that, I leave you and see you soon.
+Nicolas SAN AGUSTIN
+
