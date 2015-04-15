@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="libCurl_as_DLL_GetInfo" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option show_notes="0">
+			<notes>
+				<![CDATA[CB Global Variable (CURL)
+
+I am using these settings
+Base: C:\SourceCode\OpenSourceCode\Libs\libCurl\curl-7.40.0-win32
+
+Bin: C:\SourceCode\OpenSourceCode\Libs\libCurl\curl-7.40.0-win32\dlls
+
+Base should contain these sub folders
+dlls
+include
+
+I downloaded the zip file curl-7.40.0-win32.zip from http://www.confusedbycode.com/curl/#downloads
+
+
+
+
+]]>
+			</notes>
+		</Option>
+		<Build>
+			<Target title="DebugWin32">
+				<Option output="bin/DebugWin32/libCurl_GetInfo" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/DebugWin32/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="$(#CURL.bin)\libcurl.dll" />
+				</Linker>
+			</Target>
+			<Target title="ReleaseWin32">
+				<Option output="bin/ReleaseWin32/libCurl_GetInfo" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/ReleaseWin32/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="$(#CURL.bin)\libcurl.dll" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="DebugWin32;ReleaseWin32;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="$(#CURL.include)" />
+		</Compiler>
+		<Unit filename="getinfo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
