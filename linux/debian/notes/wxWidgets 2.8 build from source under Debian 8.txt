@@ -1,18 +1,15 @@
 # nano /etc/apt/sources.list
 
-
 cd ~/devel
 mkdir deb_source_libs
 
 cd ~/devel/deb_source_libs
 apt-get source wxwidgets2.8
 
-
 cd ~/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
 dpkg-buildpackage -rfakeroot -uc
 
-
-#
+# Some dpkg-buildpackage options
 #  -b     Specifies a binary-only build, no source files are to be built and/or distributed. Passed to dpkg-genchanges.
 #  -uc    Do not sign the .changes file.
 #  -d     Do not check build dependencies and conflicts.
@@ -21,25 +18,6 @@ dpkg-buildpackage -rfakeroot -uc -nc
 
 dpkg-buildpackage -rfakeroot -uc -nc &> tims_wxgtk28.txt
 
-su 
-dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-doc
-dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-gtk
-dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-gtk-dev
-dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-gtk-dbg
-dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-fast			# Failed
-
-dpkg-buildpackage -uc -b -d --target=binary-doc 	# Worked
-dpkg-buildpackage -uc -b -d --target=binary-gtk		# Many warnings of missing symbols.
-dpkg-buildpackage -uc -b -d --target=binary-gtk-dev	# Many warnings of missing symbols.
-dpkg-buildpackage -uc -b -d --target=install-headers-msw # fatal error: zlib.h: No such file or directory
-dpkg-buildpackage -uc -b -d --target=install-msw-dev # recipe for target 'build-msw-shared-stamp' failed
-
-binary-cross
-
-dpkg-buildpackage -uc -b -d --target=binary-fast	# make[1]: *** No rule to make target '../src/zlib/adler32.c', needed by 'wxzlib_adler32.o'.  Stop.
-
-
-exit
 
 # mingw32 package needed??
 mingw-w64-x86-64-dev
@@ -81,20 +59,36 @@ dpkg -i *2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
 dpkg -i *2.8-dbg_2.8.12.1+dfsg2-2_amd64.deb
 exit
 
+
+
+
+
+OLD STUFF BELOW
+
 --target=binary-gtk
 --target=binary-gtk-dev
-
-
-cd ..
-mkdir libwxgtk2.8-dev
-cd libwxgtk2.8-dev
-apt-get source libwxgtk2.8-dev
-
-dpkg-buildpackage -rfakeroot -uc -b
-
 
 # apt-get build-dep libwxgtk2.8-0
 libtiff4-dev
 
 
+su 
+dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-doc
+dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-gtk
+dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-gtk-dev
+dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-gtk-dbg
+dpkg-buildpackage -rfakeroot -uc -b -d -nc --target=binary-fast			# Failed
+
+dpkg-buildpackage -uc -b -d --target=binary-doc 	# Worked
+dpkg-buildpackage -uc -b -d --target=binary-gtk		# Many warnings of missing symbols.
+dpkg-buildpackage -uc -b -d --target=binary-gtk-dev	# Many warnings of missing symbols.
+dpkg-buildpackage -uc -b -d --target=install-headers-msw # fatal error: zlib.h: No such file or directory
+dpkg-buildpackage -uc -b -d --target=install-msw-dev # recipe for target 'build-msw-shared-stamp' failed
+
+binary-cross
+
+dpkg-buildpackage -uc -b -d --target=binary-fast	# make[1]: *** No rule to make target '../src/zlib/adler32.c', needed by 'wxzlib_adler32.o'.  Stop.
+
+
+exit
 
