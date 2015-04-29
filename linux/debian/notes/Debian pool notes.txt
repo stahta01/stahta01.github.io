@@ -43,4 +43,9 @@ codeblocks_13.12-3.dsc
 http://sourceforge.net/projects/codeblocks/files/Sources/13.12/codeblocks_13.12-1.tar.gz/download
 
 http://packages.ubuntu.com/utopic/devel/codeblocks-contrib
-	
+
+http://archive.ubuntu.com/ubuntu/dists/devel/universe/source/
+
+http://archive.ubuntu.com/ubuntu/pool/universe/t/tinyxml/tinyxml_2.6.2-1build1.dsc
+http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets2.8/
+

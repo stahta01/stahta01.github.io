@@ -1,0 +1,14 @@
+Package: cbp2make
+Package: tinyxml2
+Package: wxwidgets2.8
+
+
+Package: codeblocks
+Package: gspiceui
+Package: pgadmin3
+Package: scite
+Package: wxformbuilder
+Package: wxglade
+Package: wxsqlite3
+Package: wxwidgets3.0
+

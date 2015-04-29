@@ -16,8 +16,7 @@ dpkg-buildpackage -rfakeroot -uc
 #  -nc    Do not clean the source tree (implies -b if nothing else has been selected among -B, -A or -S).
 dpkg-buildpackage -rfakeroot -uc -nc
 
-dpkg-buildpackage -rfakeroot -uc -nc &> tims_wxgtk28.txt
-
+dpkg-buildpackage -rfakeroot -uc -nc -b
 
 # mingw32 package needed??
 mingw-w64-x86-64-dev
@@ -25,7 +24,7 @@ mingw-w64-x86-64-dev
 # zlib 
 # expat
 # and other folders like jpeg
-dpkg-buildpackage -uc -nc --target=binary-cross
+su --command "dpkg-buildpackage -uc -nc --target=binary-cross"
 
 make[1]: *** No rule to make target '../src/zlib/adler32.c', needed by 'wxzlib_adler32.o'.  Stop.
 

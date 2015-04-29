@@ -1,0 +1,10 @@
+# nano /etc/apt/sources.list
+# deb-src http://http.debian.net/debian sid main
+# deb-src http://archive.ubuntu.com/ubuntu devel universe
+
+cd ~/devel/deb_source_libs
+apt-get source cbp2make
+
+cd ~/devel/deb_source_libs/cbp2make-147+dfsg
+dpkg-buildpackage -rfakeroot -uc
+

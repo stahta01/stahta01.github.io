@@ -1,5 +1,6 @@
 # nano /etc/apt/sources.list
 # deb-src http://http.debian.net/debian sid main
+# deb-src http://archive.ubuntu.com/ubuntu devel universe
 
 cd ~/devel
 mkdir deb_source_libs
