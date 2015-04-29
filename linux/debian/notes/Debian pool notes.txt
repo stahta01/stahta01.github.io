@@ -41,4 +41,6 @@ codeblocks_13.12-3.debian.tar.xz
 codeblocks_13.12-3.dsc
 
 http://sourceforge.net/projects/codeblocks/files/Sources/13.12/codeblocks_13.12-1.tar.gz/download
+
+http://packages.ubuntu.com/utopic/devel/codeblocks-contrib
 	
