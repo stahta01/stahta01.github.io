@@ -28,6 +28,38 @@ Checksums-Sha256:
  a2aade9f607d7e201758d6cbfaf61607140f1871ee479b54f51efaa7b68546c6 136347 cbp2make_147+dfsg.orig.tar.gz
  b2ad5cf3654e95544fba65f4948d0d5fe7c3190162194438a0d9ebb2ca01dfee 6540 cbp2make_147+dfsg-1.debian.tar.xz
 
+Package: tinyxml
+Binary: libtinyxml2.6.2, libtinyxml2.6.2-dbg, libtinyxml-dev, libtinyxml-doc
+Version: 2.6.2-2
+Priority: optional
+Section: universe/libs
+Maintainer: Felix Geyer <fgeyer@debian.org>
+Build-Depends: debhelper (>= 8.1.3~), dpkg-dev (>= 1.16.1~)
+Architecture: any all
+Standards-Version: 3.9.4
+Format: 3.0 (quilt)
+Directory: pool/universe/t/tinyxml
+Files:
+ 3f8fe75f0485c4b8278ddf6ef5f2f11e 2036 tinyxml_2.6.2-2.dsc
+ c1b864c96804a10526540c664ade67f0 210124 tinyxml_2.6.2.orig.tar.gz
+ 9bcd3cf326fe5d241736a8eb934c6ec7 4199 tinyxml_2.6.2-2.debian.tar.gz
+Homepage: http://www.grinninglizard.com/tinyxml/
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/tinyxml.git
+Vcs-Git: git://anonscm.debian.org/collab-maint/tinyxml.git
+Package-List: 
+ libtinyxml-dev deb libdevel optional
+ libtinyxml-doc deb doc extra
+ libtinyxml2.6.2 deb libs optional
+ libtinyxml2.6.2-dbg deb debug extra
+Checksums-Sha1:
+ 6a74f4272610c6ab19c973558c3a08f3e114f2f0 2036 tinyxml_2.6.2-2.dsc
+ cba3f50dd657cb1434674a03b21394df9913d764 210124 tinyxml_2.6.2.orig.tar.gz
+ 2604438bfd5c6ec52370fa4698ec783f00b5b06d 4199 tinyxml_2.6.2-2.debian.tar.gz
+Checksums-Sha256:
+ 36d6e0cc1aa2eace111aa4e8c40c645c90c0a8a638ad5646a47be0c5d69173d8 2036 tinyxml_2.6.2-2.dsc
+ 15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593 210124 tinyxml_2.6.2.orig.tar.gz
+ ed1bfa866785a203486ba57a73687e3965865f65d8fb789ab2fe5bb00edb3af0 4199 tinyxml_2.6.2-2.debian.tar.gz
+
 Package: wxwidgets2.8
 Binary: libwxbase2.8-0, libwxbase2.8-dev, libwxbase2.8-dbg, libwxgtk2.8-0, libwxgtk2.8-dev, libwxgtk2.8-dbg, libwxgtk-media2.8-0, libwxgtk-media2.8-dbg, libwxgtk-media2.8-dev, python-wxgtk2.8, python-wxgtk2.8-dbg, python-wxversion, python-wxtools, wx-common, wx2.8-headers, wx2.8-i18n, wx2.8-doc, wx2.8-examples, libwxmsw2.8-dev, libwxmsw2.8-dbg, wx2.8-headers-msw
 Version: 2.8.12.1+dfsg2-2ubuntu1
