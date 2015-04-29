@@ -1,8 +1,0 @@
-Archive: stable
-Origin: stahta01
-Label: Unofficial packages
-Version: 8.0
-Component: main
-Architecture: source
-Description: Unoffical repository for wxWidgets, Code::Blocks IDE, and other items.
-
