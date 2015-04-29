@@ -1,0 +1,82 @@
+Package: cbp2make
+Binary: cbp2make
+Version: 147+dfsg-1
+Priority: optional
+Section: universe/misc
+Maintainer: Debian Science Team <debian-science-maintainers@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 9.0.0), libtinyxml-dev
+Architecture: any
+Standards-Version: 3.9.5
+Format: 3.0 (quilt)
+Directory: pool/universe/c/cbp2make
+Files:
+ a4aa89c56a16b63cdc49423399a4ec4f 1964 cbp2make_147+dfsg-1.dsc
+ 652d2c1f4720f85daaec9d7a842cff69 136347 cbp2make_147+dfsg.orig.tar.gz
+ b51501c2c6293883a5e104bf80c1f743 6540 cbp2make_147+dfsg-1.debian.tar.xz
+Uploaders: Steffen Moeller <moeller@debian.org>
+Homepage: http://cbp2make.sf.net
+Vcs-Browser: http://anonscm.debian.org/viewvc/debian-science/packages/cbp2make/trunk
+Vcs-Svn: svn://svn.debian.org/svn/debian-science/cbp2make
+Package-List:
+ cbp2make deb devel optional
+Checksums-Sha1:
+ cfef78557d3dc32eae482bf459d4c864ff4e5c74 1964 cbp2make_147+dfsg-1.dsc
+ 1aabebf8f23e91a987832ddaf09f5011cfeea70f 136347 cbp2make_147+dfsg.orig.tar.gz
+ 76a8d503671bc82659add4bad5b77647751f21de 6540 cbp2make_147+dfsg-1.debian.tar.xz
+Checksums-Sha256:
+ a0766c24b417a4c83a88027902fc9b420b77a33d7597ba6427aead173df730f1 1964 cbp2make_147+dfsg-1.dsc
+ a2aade9f607d7e201758d6cbfaf61607140f1871ee479b54f51efaa7b68546c6 136347 cbp2make_147+dfsg.orig.tar.gz
+ b2ad5cf3654e95544fba65f4948d0d5fe7c3190162194438a0d9ebb2ca01dfee 6540 cbp2make_147+dfsg-1.debian.tar.xz
+
+Package: wxwidgets2.8
+Binary: libwxbase2.8-0, libwxbase2.8-dev, libwxbase2.8-dbg, libwxgtk2.8-0, libwxgtk2.8-dev, libwxgtk2.8-dbg, libwxgtk-media2.8-0, libwxgtk-media2.8-dbg, libwxgtk-media2.8-dev, python-wxgtk2.8, python-wxgtk2.8-dbg, python-wxversion, python-wxtools, wx-common, wx2.8-headers, wx2.8-i18n, wx2.8-doc, wx2.8-examples, libwxmsw2.8-dev, libwxmsw2.8-dbg, wx2.8-headers-msw
+Version: 2.8.12.1+dfsg2-2ubuntu1
+Priority: optional
+Section: universe/libs
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: wxWidgets Maintainers <freewx-maint@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 9), gettext, libgtk2.0-dev, python-all (>= 2.6.6-3~), python-all-dev (>= 2.6.6-3~), python-all-dbg (>= 2.6.6-3~), python-libxml2-dbg, zlib1g-dev, libjpeg-dev, libpng-dev, libtiff5-dev, libsm-dev, libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev | libglu-dev, libesd0-dev, autotools-dev, libexpat1-dev, dpkg-dev (>= 1.16.1~), libxt-dev, libgstreamer-plugins-base0.10-dev, libgconf2-dev
+Architecture: any all
+Standards-Version: 3.9.5
+Format: 3.0 (quilt)
+Directory: pool/universe/w/wxwidgets2.8
+Files:
+ de52c6e4e7098bebc0cc2aa64896ebac 3153 wxwidgets2.8_2.8.12.1+dfsg2-2ubuntu1.dsc
+ 168707e1e721d8c321e101ad5e31bd62 16325944 wxwidgets2.8_2.8.12.1+dfsg2.orig.tar.xz
+ 145a9db089925c0c851f0d89b9314461 159768 wxwidgets2.8_2.8.12.1+dfsg2-2ubuntu1.debian.tar.xz
+Uploaders: Ryan Niebur <ryan@debian.org>, Ron Lee <ron@debian.org>, Olly Betts <olly@survex.com>
+Homepage: http://www.wxwidgets.org/
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=freewx/wx.git
+Vcs-Git: git://anonscm.debian.org/freewx/wx.git
+Package-List:
+ libwxbase2.8-0 deb oldlibs optional arch=any
+ libwxbase2.8-dbg deb debug extra arch=any
+ libwxbase2.8-dev deb oldlibs optional arch=any
+ libwxgtk-media2.8-0 deb oldlibs optional arch=any
+ libwxgtk-media2.8-dbg deb debug extra arch=any
+ libwxgtk-media2.8-dev deb oldlibs optional arch=any
+ libwxgtk2.8-0 deb oldlibs optional arch=any
+ libwxgtk2.8-dbg deb oldlibs extra arch=any
+ libwxgtk2.8-dev deb oldlibs optional arch=any
+ libwxmsw2.8-dbg deb otherosfs optional arch=any
+ libwxmsw2.8-dev deb otherosfs optional arch=any
+ python-wxgtk2.8 deb python optional arch=any
+ python-wxgtk2.8-dbg deb debug extra arch=any
+ python-wxtools deb python optional arch=all
+ python-wxversion deb python optional arch=all
+ wx-common deb devel optional arch=any
+ wx2.8-doc deb oldlibs optional arch=all
+ wx2.8-examples deb oldlibs optional arch=all
+ wx2.8-headers deb oldlibs optional arch=any
+ wx2.8-headers-msw deb otherosfs optional arch=any
+ wx2.8-i18n deb oldlibs optional arch=all
+Checksums-Sha1:
+ 1b04f451bc62e7100c2e86e6e0769257642d9660 3153 wxwidgets2.8_2.8.12.1+dfsg2-2ubuntu1.dsc
+ d339d9a4f7f2a1fa7a2c2ccd1850136cf750862a 16325944 wxwidgets2.8_2.8.12.1+dfsg2.orig.tar.xz
+ 8d31599440af847da205c43563bcde346a1326c5 159768 wxwidgets2.8_2.8.12.1+dfsg2-2ubuntu1.debian.tar.xz
+Checksums-Sha256:
+ 30ce8d36e2f1ba554625c9103b865a8e928e9ab7ee1c090f3a3fb2b6c300cfa0 3153 wxwidgets2.8_2.8.12.1+dfsg2-2ubuntu1.dsc
+ 605a92f576959076cceff3b4120e457f6546d878494226dba9e2d0a05430792f 16325944 wxwidgets2.8_2.8.12.1+dfsg2.orig.tar.xz
+ f93fae8fabb154b2ffae0fa28b98e3e9bef8ea43861619557fd17bf5b02b9e30 159768 wxwidgets2.8_2.8.12.1+dfsg2-2ubuntu1.debian.tar.xz
+
+
