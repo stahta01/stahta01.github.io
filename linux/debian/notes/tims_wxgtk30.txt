@@ -1,0 +1,146 @@
+dpkg-buildpackage: source package wxwidgets3.0
+dpkg-buildpackage: source version 3.0.2-1
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by Olly Betts <olly@survex.com>
+ dpkg-source --before-build wxwidgets3.0-3.0.2
+dpkg-buildpackage: host architecture amd64
+ debian/rules build
+make: Nothing to be done for 'build'.
+ fakeroot debian/rules binary
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/lib/x86_64-linux-gnu/libwx_base*.so.*	usr/lib/x86_64-linux-gnu
+dh_installdirs usr/share/lintian/overrides
+grep ^libwxbase3.0-0: debian/lintian-override > debian/libwxbase3.0-0/usr/share/lintian/overrides/libwxbase3.0-0
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/lib/x86_64-linux-gnu/libwx_base*.so	usr/lib/x86_64-linux-gnu
+dh_install objs_wxbase_sh/lib/wx/include	usr/lib/x86_64-linux-gnu/wx
+dh_install objs_wxbase_sh/lib/wx/config/base*	usr/lib/x86_64-linux-gnu/wx/config
+dh_testdir
+dh_testroot
+dh_prep
+dh_install -Xmedia -Xwebview objs_gtk_install/lib/x86_64-linux-gnu/libwx_gtk*.so.*	usr/lib/x86_64-linux-gnu
+dh_installdirs usr/share/lintian/overrides
+grep ^libwxgtk3.0-0: debian/lintian-override > debian/libwxgtk3.0-0/usr/share/lintian/overrides/libwxgtk3.0-0
+dh_testdir
+dh_testroot
+dh_prep
+dh_install -Xmedia -Xwebview objs_gtk_install/lib/x86_64-linux-gnu/libwx_gtk*.so	usr/lib/x86_64-linux-gnu
+dh_install -Xmediactrl objs_gtk_install/lib/x86_64-linux-gnu/wx/include	usr/lib/x86_64-linux-gnu/wx
+dh_install objs_gtk_install/lib/x86_64-linux-gnu/wx/config/gtk*	usr/lib/x86_64-linux-gnu/wx/config
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/lib/x86_64-linux-gnu/libwx_gtk*media*.so.*	usr/lib/x86_64-linux-gnu
+dh_installdirs usr/share/lintian/overrides
+grep ^libwxgtk-media3.0-0: debian/lintian-override > debian/libwxgtk-media3.0-0/usr/share/lintian/overrides/libwxgtk-media3.0-0
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/lib/x86_64-linux-gnu/libwx_gtk*media*.so	usr/lib/x86_64-linux-gnu
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/lib/x86_64-linux-gnu/libwx_gtk*webview*.so.*        usr/lib/x86_64-linux-gnu
+dh_installdirs usr/share/lintian/overrides
+grep ^libwxgtk-webview3.0-0: debian/lintian-override > debian/libwxgtk-webview3.0-0/usr/share/lintian/overrides/libwxgtk-webview3.0-0
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/lib/x86_64-linux-gnu/libwx_gtk*webview*.so  usr/lib/x86_64-linux-gnu
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/include	usr
+dh_testdir
+dh_testroot
+dh_prep
+# We end up with usr/share/locale/zh/LC_MESSAGES/ empty in 2.8.12.1.
+find objs_gtk_install/share/locale -type d -empty -delete
+dh_install objs_gtk_install/share/locale	usr/share
+dh_testdir
+dh_testroot
+dh_prep
+dh_install objs_gtk_install/share/bakefile/presets usr/share/bakefile
+dh_install objs_gtk_install/share/bakefile/presets/wx*.bkl usr/share/bakefile/presets
+dh_install objs_gtk_install/share/aclocal usr/share
+dh_installman debian/wx-config.1
+dh_install objs_gtk_sh/utils/wxrc/wxrc usr/bin
+dh_installman debian/wxrc-tools.1
+dh_link usr/share/man/man1/wxrc-tools.1 usr/share/man/man1/wxrc.1
+/usr/bin/make -f debian/rules \
+	DH_OPTIONS="-a " \
+	binary-common
+make[1]: Entering directory '/home/stahta01/devel/deb_source_libs/wxwidgets3.0-3.0.2'
+dh_testdir
+dh_testroot
+dh_installchangelogs docs/changes.txt
+dh_installdocs
+dh_installexamples
+dh_installmenu
+dh_link
+DH_OPTIONS= dh_strip -plibwxbase3.0-0 --dbg-package=libwxbase3.0-0-dbg
+DH_OPTIONS= dh_strip -plibwxgtk3.0-0 --dbg-package=libwxgtk3.0-0-dbg
+DH_OPTIONS= dh_strip -plibwxgtk-media3.0-0 --dbg-package=libwxgtk-media3.0-0-dbg
+DH_OPTIONS= dh_strip -plibwxgtk-webview3.0-0 --dbg-package=libwxgtk-webview3.0-0-dbg
+dh_strip --remaining-packages
+dh_strip: No packages to build.
+dh_compress
+dh_fixperms
+dh_makeshlibs -V
+dh_installdeb
+dh_shlibdeps
+dh_gencontrol
+dpkg-gencontrol: warning: Pre-Depends field of package libwxbase3.0-0-dbg: unknown substitution variable ${misc:Pre-Depends}
+dpkg-gencontrol: warning: Pre-Depends field of package libwxgtk3.0-0-dbg: unknown substitution variable ${misc:Pre-Depends}
+dpkg-gencontrol: warning: Pre-Depends field of package libwxgtk-media3.0-0-dbg: unknown substitution variable ${misc:Pre-Depends}
+dpkg-gencontrol: warning: Pre-Depends field of package libwxgtk-webview3.0-0-dbg: unknown substitution variable ${misc:Pre-Depends}
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package `libwxbase3.0-0' in `../libwxbase3.0-0_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxbase3.0-dev' in `../libwxbase3.0-dev_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxbase3.0-0-dbg' in `../libwxbase3.0-0-dbg_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk3.0-0' in `../libwxgtk3.0-0_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk3.0-dev' in `../libwxgtk3.0-dev_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk3.0-0-dbg' in `../libwxgtk3.0-0-dbg_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk-media3.0-0' in `../libwxgtk-media3.0-0_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk-media3.0-0-dbg' in `../libwxgtk-media3.0-0-dbg_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk-media3.0-dev' in `../libwxgtk-media3.0-dev_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk-webview3.0-0' in `../libwxgtk-webview3.0-0_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk-webview3.0-0-dbg' in `../libwxgtk-webview3.0-0-dbg_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `libwxgtk-webview3.0-dev' in `../libwxgtk-webview3.0-dev_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `wx-common' in `../wx-common_3.0.2-1_amd64.deb'.
+dpkg-deb: building package `wx3.0-headers' in `../wx3.0-headers_3.0.2-1_amd64.deb'.
+make[1]: Leaving directory '/home/stahta01/devel/deb_source_libs/wxwidgets3.0-3.0.2'
+dh_testdir
+dh_testroot
+dh_prep
+/usr/bin/make -f debian/rules \
+	DH_OPTIONS="-i " \
+	binary-common
+make[1]: Entering directory '/home/stahta01/devel/deb_source_libs/wxwidgets3.0-3.0.2'
+dh_testdir
+dh_testroot
+dh_installchangelogs docs/changes.txt
+dh_installdocs
+dh_installexamples
+dh_installmenu
+dh_link
+dh_compress
+dh_fixperms
+dh_makeshlibs -V
+dh_installdeb
+dh_shlibdeps
+dh_gencontrol
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package `wx3.0-i18n' in `../wx3.0-i18n_3.0.2-1_all.deb'.
+dpkg-deb: building package `wx3.0-examples' in `../wx3.0-examples_3.0.2-1_all.deb'.
+make[1]: Leaving directory '/home/stahta01/devel/deb_source_libs/wxwidgets3.0-3.0.2'
+ dpkg-genchanges  >../wxwidgets3.0_3.0.2-1_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source --after-build wxwidgets3.0-3.0.2
+dpkg-buildpackage: full upload (original source is included)

@@ -1,0 +1,32 @@
+# nano /etc/apt/sources.list
+# deb-src http://http.debian.net/debian sid main
+
+cd ~/devel
+mkdir deb_source_libs
+
+cd ~/devel/deb_source_libs
+apt-get source wxwidgets3.0
+
+-t unstable
+
+cd ~/devel/deb_source_libs/wxwidgets3.0-3.0.2
+dpkg-buildpackage -rfakeroot -uc
+
+dpkg-buildpackage -rfakeroot -uc -nc
+
+
+# mingw32 package needed??
+su --command "dpkg-buildpackage -uc  -nc --target=binary-cross"
+
+cd ~/devel/deb_source_libs/wxwidgets3.0-3.0.2
+dpkg-buildpackage -rfakeroot -uc -nc &> /home/stahta01/devel/stahta01.github.io-git/linux/debian/notes/tims_wxgtk30.txt
+su --command "dpkg-buildpackage -uc  -nc --target=binary-cross &> /home/stahta01/devel/stahta01.github.io-git/linux/debian/notes/tims_wxmsw30.txt"
+
+cd ~/devel/deb_source_libs
+# Install deb files
+su --command "dpkg -i wx-common_3.0.2-1_amd64.deb"
+su --command "dpkg -i wx3.0-headers_3.0.2-1_amd64.deb"
+su --command "dpkg -i *3.0-0_3.0.2-1_amd64.deb"
+su --command "dpkg -i *3.0-dev_3.0.2-1_amd64.deb"
+su --command "dpkg -i *3.0-0-dbg_3.0.2-1_amd64.deb"
+

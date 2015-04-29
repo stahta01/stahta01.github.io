@@ -1,0 +1,46 @@
+-rw-r--r-- 1 stahta01 stahta01  3040226 Apr 28 20:23 libwxbase2.8-dbg_2.8.12.1+dfsg2-2_amd64.deb
+-rw-r--r-- 1 stahta01 stahta01 17270136 Apr 28 20:27 libwxgtk2.8-dbg_2.8.12.1+dfsg2-2_amd64.deb
+-rw-r--r-- 1 stahta01 stahta01   110514 Apr 28 20:27 libwxgtk-media2.8-dbg_2.8.12.1+dfsg2-2_amd64.deb
+-rw-r--r-- 1 stahta01 stahta01 18543560 Apr 28 20:30 python-wxgtk2.8-dbg_2.8.12.1+dfsg2-2_amd64.deb
+
+
+-rw-r--r-- 1 stahta01 stahta01   558744 Apr 28 20:23 libwxbase2.8-0_2.8.12.1+dfsg2-2_amd64.deb
+-rw-r--r-- 1 stahta01 stahta01  2637038 Apr 28 20:23 libwxgtk2.8-0_2.8.12.1+dfsg2-2_amd64.deb
+-rw-r--r-- 1 stahta01 stahta01   107246 Apr 28 20:27 libwxgtk-media2.8-0_2.8.12.1+dfsg2-2_amd64.deb
+
+
+-rw-r--r-- 1 stahta01 stahta01   102790 Apr 28 20:23 libwxbase2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
+-rw-r--r-- 1 stahta01 stahta01   102994 Apr 28 20:23 libwxgtk2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
+-rw-r--r-- 1 stahta01 stahta01    83130 Apr 28 20:27 libwxgtk-media2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
+
+-rw-r--r-- 1 stahta01 stahta01  1097916 Apr 28 20:31 wx2.8-headers_2.8.12.1+dfsg2-2_amd64.deb
+
+-rw-r--r-- 1 stahta01 stahta01  3948108 Apr 28 20:28 python-wxgtk2.8_2.8.12.1+dfsg2-2_amd64.deb
+
+-rw-r--r-- 1 stahta01 stahta01  1641328 Apr 28 20:31 wx2.8-doc_2.8.12.1+dfsg2-2_all.deb
+
+-rw-r--r-- 1 stahta01 stahta01  5887534 Apr 28 20:31 wx2.8-examples_2.8.12.1+dfsg2-2_all.deb
+-rw-r--r-- 1 stahta01 stahta01   441602 Apr 28 20:31 wx2.8-i18n_2.8.12.1+dfsg2-2_all.deb
+
+
+-rw-r--r-- 1 root     root     11523506 Apr 28 20:27 libwxbase3.0-0-dbg_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root     49774448 Apr 28 20:30 libwxgtk3.0-0-dbg_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       460456 Apr 28 20:30 libwxgtk-media3.0-0-dbg_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       548824 Apr 28 20:30 libwxgtk-webview3.0-0-dbg_3.0.2-1_amd64.deb
+
+-rw-r--r-- 1 root     root      1101514 Apr 28 20:26 libwxbase3.0-0_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root      4632294 Apr 28 20:28 libwxgtk3.0-0_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       157070 Apr 28 20:30 libwxgtk-media3.0-0_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       153318 Apr 28 20:30 libwxgtk-webview3.0-0_3.0.2-1_amd64.deb
+
+-rw-r--r-- 1 root     root       132690 Apr 28 20:26 libwxbase3.0-dev_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       132928 Apr 28 20:28 libwxgtk3.0-dev_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       112174 Apr 28 20:30 libwxgtk-media3.0-dev_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       112176 Apr 28 20:30 libwxgtk-webview3.0-dev_3.0.2-1_amd64.deb
+
+-rw-r--r-- 1 root     root      1127002 Apr 28 20:30 wx3.0-headers_3.0.2-1_amd64.deb
+-rw-r--r-- 1 root     root       353834 Apr 28 20:30 wx-common_3.0.2-1_amd64.deb
+
+-rw-r--r-- 1 root     root      3746562 Apr 28 20:31 wx3.0-examples_3.0.2-1_all.deb
+-rw-r--r-- 1 root     root       567058 Apr 28 20:30 wx3.0-i18n_3.0.2-1_all.deb
+

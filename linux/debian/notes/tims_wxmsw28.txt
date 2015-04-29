@@ -1,0 +1,16 @@
+dpkg-buildpackage: source package wxwidgets2.8
+dpkg-buildpackage: source version 2.8.12.1+dfsg2-2
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by Olly Betts <olly@survex.com>
+dpkg-buildpackage: host architecture amd64
+ debian/rules binary-cross
+pyversions: missing X(S)-Python-Version in control file, fall back to debian/pyversions
+pyversions: missing debian/pyversions file, fall back to supported versions
+dh_testdir
+/usr/bin/make -C objs_msw_sh
+make[1]: Entering directory '/home/stahta01/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2/objs_msw_sh'
+make[1]: *** No rule to make target '../src/zlib/adler32.c', needed by 'wxzlib_adler32.o'.  Stop.
+make[1]: Leaving directory '/home/stahta01/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2/objs_msw_sh'
+debian/rules:596: recipe for target 'build-msw-shared-stamp' failed
+make: *** [build-msw-shared-stamp] Error 2
+dpkg-buildpackage: error: debian/rules binary-cross gave error exit status 2
