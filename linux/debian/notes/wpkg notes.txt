@@ -1,0 +1,15 @@
+
+wpkg --root C:/Users/stahta01/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT --install wpkg_0.9.10_mswindows-i386.deb
+
+wpkg --root C:/Users/stahta01/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT --list
+
+SET WPKG_OPTIONS=--root C:/Users/stahta01/AppData/Local/M2OSW/pkg-explorer/WPKG_ROOT
+
+wpkg --list-sources
+
+wpkg --architecture
+
+wpkg --list
+
+
+ 
