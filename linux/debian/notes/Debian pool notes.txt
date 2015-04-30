@@ -50,3 +50,6 @@ http://archive.ubuntu.com/ubuntu/pool/universe/t/tinyxml/tinyxml_2.6.2-1build1.d
 http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets2.8/
 http://archive.ubuntu.com/ubuntu/dists/utopic/universe/source/
 
+https://wiki.debian.org/RepositoryFormat
+http://windowspackager.org/documentation/wpkg
+
