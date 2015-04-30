@@ -49,4 +49,9 @@ http://archive.ubuntu.com/ubuntu/dists/devel/universe/source/
 http://archive.ubuntu.com/ubuntu/pool/universe/t/tinyxml/tinyxml_2.6.2-1build1.dsc
 http://archive.ubuntu.com/ubuntu/pool/universe/w/wxwidgets2.8/
 http://archive.ubuntu.com/ubuntu/dists/utopic/universe/source/
+http://debian.cse.msu.edu/debian/dists/sid/main/source/
+[ ]	Release	29-Apr-2015 17:14 	84
+[DIR]	Sources.diff/	29-Apr-2015 17:09 	-
+[ ]	Sources.gz	29-Apr-2015 16:15 	9.7M
+[ ]	Sources.xz	29-Apr-2015 16:15 	7.5M
 

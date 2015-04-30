@@ -6,7 +6,7 @@ mkdir deb_source_libs
 cd ~/devel/deb_source_libs
 apt-get source wxwidgets2.8
 
-cd ~/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
+cd /home/stahta01/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
 dpkg-buildpackage -rfakeroot -uc
 
 # Some dpkg-buildpackage options
