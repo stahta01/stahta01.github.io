@@ -55,3 +55,6 @@ http://debian.cse.msu.edu/debian/dists/sid/main/source/
 [ ]	Sources.gz	29-Apr-2015 16:15 	9.7M
 [ ]	Sources.xz	29-Apr-2015 16:15 	7.5M
 
+https://wiki.debian.org/RepositoryFormat
+http://windowspackager.org/documentation/wpkg
+
