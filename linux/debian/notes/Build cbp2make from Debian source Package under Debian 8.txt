@@ -12,6 +12,6 @@ dpkg-checkbuilddeps: Unmet build dependencies: libtinyxml-dev
 
 cd ~/devel/deb_source_libs
 su
-dpkg -i 
+dpkg -i cbp2make_147+dfsg-1_amd64.deb
 exit
 

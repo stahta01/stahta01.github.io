@@ -20,4 +20,19 @@ hardening-wrapper
 
 Edit the package to try to use libwxgtk2.8-dev 
 
+cd ~/devel/deb_source_libs/rapidsvn-0.12.1dfsg
+dpkg-buildpackage -rfakeroot -uc -d
+
+make[2]: Leaving directory '/home/stahta01/devel/deb_source_libs/rapidsvn-0.12.1dfsg/src'
+Makefile:299: recipe for target 'all-recursive' failed
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory '/home/stahta01/devel/deb_source_libs/rapidsvn-0.12.1dfsg'
+debian/rules:67: recipe for target 'build-stamp' failed
+make: *** [build-stamp] Error 2
+
+
+cd ~/devel/deb_source_libs
+su
+dpkg -i 
+exit
 
