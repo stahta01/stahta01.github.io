@@ -1,0 +1,23 @@
+# nano /etc/apt/sources.list
+# deb-src http://archive.ubuntu.com/ubuntu/ devel universe
+# deb-src http://debian.cse.msu.edu/debian/ sid main
+
+cd ~/devel/deb_source_libs
+apt-get source rapidsvn
+
+cd ~/devel/deb_source_libs/rapidsvn-0.12.1dfsg
+dpkg-buildpackage -rfakeroot -uc
+
+dpkg-checkbuilddeps: Unmet build dependencies: 
+libneon27-gnutls-dev 
+libsvn-dev (>= 1.4.4) 
+libsasl2-dev 
+libwxgtk3.0-dev 
+xsltproc 
+doxygen 
+autotools-dev 
+hardening-wrapper
+
+Edit the package to try to use libwxgtk2.8-dev 
+
+

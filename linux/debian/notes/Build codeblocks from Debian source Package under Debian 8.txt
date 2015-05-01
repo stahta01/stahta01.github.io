@@ -3,15 +3,24 @@
 # deb-src http://debian.cse.msu.edu/debian/ sid main
 
 cd ~/devel/deb_source_libs
-apt-get source cbp2make
+apt-get source codeblocks
 
-cd ~/devel/deb_source_libs/cbp2make-147+dfsg
+cd ~/devel/deb_source_libs/codeblocks-13.12
 dpkg-buildpackage -rfakeroot -uc
 
-dpkg-checkbuilddeps: Unmet build dependencies: libtinyxml-dev
+dpkg-checkbuilddeps: Unmet build dependencies: 
+dh-autoreconf 
+libbz2-dev 
+libhunspell-dev 
+libgamin-dev 
+libboost-dev
 
 cd ~/devel/deb_source_libs
 su
 dpkg -i 
 exit
+
+
+
+
 

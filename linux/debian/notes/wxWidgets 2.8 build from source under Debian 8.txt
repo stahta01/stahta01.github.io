@@ -1,4 +1,5 @@
 # nano /etc/apt/sources.list
+deb-src http://debian.cse.msu.edu/debian/ sid main
 
 cd ~/devel
 mkdir deb_source_libs
@@ -8,6 +9,24 @@ apt-get source wxwidgets2.8
 
 cd /home/stahta01/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
 dpkg-buildpackage -rfakeroot -uc
+
+dpkg-checkbuilddeps: Unmet build dependencies: 
+python-all (>= 2.6.6-3~) 
+python-all-dev (>= 2.6.6-3~) 
+python-all-dbg (>= 2.6.6-3~) 
+python-libxml2-dbg 
+libjpeg-dev 
+libtiff5-dev 
+libgl1-mesa-dev | libgl-dev 
+libglu1-mesa-dev | libglu-dev 
+libesd0-dev 
+autotools-dev 
+libxt-dev 
+libgstreamer-plugins-base0.10-dev 
+libgconf2-dev
+
+I installed the libgl1-mesa-dev and libglu1-mesa-dev.
+
 
 # Some dpkg-buildpackage options
 #  -b     Specifies a binary-only build, no source files are to be built and/or distributed. Passed to dpkg-genchanges.
@@ -50,12 +69,57 @@ cd ~/devel/deb_source_libs
 ls -a *2.8-0_2.8.12.1+dfsg2-2_amd64.deb 
 ls -a *2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
 
+
+apt-get install wx-common
+apt-get install python-wxversion
+
 cd ~/devel/deb_source_libs
 su
 dpkg -i *2.8-0_2.8.12.1+dfsg2-2_amd64.deb
 dpkg -i wx2.8-headers_2.8.12.1+dfsg2-2_amd64.deb
+
 dpkg -i *2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
+dpkg: dependency problems prevent configuration of libwxgtk2.8-dev:
+ libwxgtk2.8-dev depends on wx-common; however:
+  Package wx-common is not installed.
+
+dpkg: error processing package libwxgtk2.8-dev (--install):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of libwxgtk-media2.8-dev:
+ libwxgtk-media2.8-dev depends on wx-common; however:
+  Package wx-common is not installed.
+ libwxgtk-media2.8-dev depends on libwxgtk2.8-dev (= 2.8.12.1+dfsg2-2); however:
+  Package libwxgtk2.8-dev is not configured yet.
+
+dpkg: error processing package libwxgtk-media2.8-dev (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ libwxgtk2.8-dev
+ libwxgtk-media2.8-dev
+
+
+dpkg -i python-wxgtk2.8_2.8.12.1+dfsg2-2_amd64.deb
+dpkg: dependency problems prevent configuration of python-wxgtk2.8:
+ python-wxgtk2.8 depends on python-wxversion (>= 2.6.3.2.2-2); however:
+  Package python-wxversion is not installed.
+
+dpkg: error processing package python-wxgtk2.8 (--install):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ python-wxgtk2.8
+
+
 dpkg -i *2.8-dbg_2.8.12.1+dfsg2-2_amd64.deb
+dpkg: dependency problems prevent configuration of python-wxgtk2.8-dbg:
+ python-wxgtk2.8-dbg depends on python-wxgtk2.8 (= 2.8.12.1+dfsg2-2); however:
+  Package python-wxgtk2.8 is not installed.
+
+dpkg: error processing package python-wxgtk2.8-dbg (--install):
+ dependency problems - leaving unconfigured
+Processing triggers for libc-bin (2.19-18) ...
+Errors were encountered while processing:
+ python-wxgtk2.8-dbg
+
 exit
 
 
