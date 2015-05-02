@@ -7,6 +7,9 @@ mkdir deb_source_libs
 cd ~/devel/deb_source_libs
 apt-get source wxwidgets2.8
 
+NOTICE: 'wxwidgets2.8' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/freewx/wx.git
+
 cd /home/stahta01/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
 dpkg-buildpackage -rfakeroot -uc
 

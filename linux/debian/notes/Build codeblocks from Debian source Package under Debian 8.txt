@@ -1,9 +1,12 @@
 # nano /etc/apt/sources.list
-# deb-src http://archive.ubuntu.com/ubuntu/ devel universe
 # deb-src http://debian.cse.msu.edu/debian/ sid main
 
 cd ~/devel/deb_source_libs
 apt-get source codeblocks
+
+NOTICE: 'codeblocks' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/collab-maint/codeblocks.git
+
 
 cd ~/devel/deb_source_libs/codeblocks-13.12
 dpkg-buildpackage -rfakeroot -uc
@@ -17,7 +20,16 @@ libboost-dev
 
 cd ~/devel/deb_source_libs
 su
-dpkg -i 
+dpkg -i libcodeblocks0_13.12-3_amd64.deb
+dpkg -i codeblocks-common_13.12-3_all.deb
+dpkg -i codeblocks_13.12-3_amd64.deb
+dpkg -i codeblocks-dev_13.12-3_amd64.deb
+dpkg -i libwxsmithlib0_13.12-3_amd64.deb
+dpkg -i codeblocks-contrib_13.12-3_amd64.deb
+dpkg -i codeblocks-dbg_13.12-3_amd64.deb
+dpkg -i libwxsmithlib-dev_13.12-3_amd64.deb
+dpkg -i codeblocks-contrib-dbg_13.12-3_amd64.deb
+dpkg -i libwxsmithlib0-dev_13.12-3_amd64.deb
 exit
 
 

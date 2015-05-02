@@ -18,7 +18,7 @@ doxygen
 autotools-dev 
 hardening-wrapper
 
-Edit the package to try to use libwxgtk2.8-dev 
+Edit the package to try to use libwxgtk2.8-dev in the future 
 
 cd ~/devel/deb_source_libs/rapidsvn-0.12.1dfsg
 dpkg-buildpackage -rfakeroot -uc -d
@@ -33,6 +33,8 @@ make: *** [build-stamp] Error 2
 
 cd ~/devel/deb_source_libs
 su
-dpkg -i 
+dpkg -i libsvncpp3_0.12.1dfsg-2_amd64.deb
+dpkg -i rapidsvn_0.12.1dfsg-2_amd64.deb
+dpkg -i libsvncpp-dev_0.12.1dfsg-2_amd64.deb
 exit
 
