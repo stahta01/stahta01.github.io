@@ -1,10 +1,10 @@
 # nano /etc/apt/sources.list
-# deb-src http://debian.cse.msu.edu/debian/ sid main
+# deb-src http://ftp.us.debian.org/debian/ sid main
 
 cd ~/devel/deb_source_libs
 apt-get source kicad
 
-cd ~/devel/deb_source_libs/
+cd ~/devel/deb_source_libs/kicad-0.20141025+bzr4029
 dpkg-buildpackage -rfakeroot -uc
 
 
@@ -12,5 +12,7 @@ cd ~/devel/deb_source_libs
 su
 dpkg -i 
 exit
+
+dpkg-checkbuilddeps: Unmet build dependencies: quilt libboost-dev cmake (>= 2.6.0) imagemagick
 
 

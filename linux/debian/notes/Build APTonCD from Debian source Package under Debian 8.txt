@@ -1,0 +1,19 @@
+# nano /etc/apt/sources.list
+
+cd ~/devel/deb_source_libs
+apt-get source aptoncd
+
+su
+apt-get build-dep aptoncd
+
+exit
+
+cd ~/devel/deb_source_libs/aptoncd-0.1.98+bzr117
+dpkg-buildpackage -rfakeroot -uc
+
+
+cd ~/devel/deb_source_libs
+su
+dpkg -i 
+exit
+

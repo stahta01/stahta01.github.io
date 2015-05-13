@@ -1,0 +1,24 @@
+# nano /etc/apt/sources.list
+
+cd ~/devel/deb_source_libs
+# apt-utils and apt-cdrom seems to be in apt
+apt-get source apt
+
+su
+apt-get build-dep apt
+
+exit
+
+cd ~/devel/deb_source_libs/apt-1.0.9.9
+dpkg-buildpackage -rfakeroot -uc
+
+
+cd ~/devel/deb_source_libs
+su
+dpkg -i apt_1.0.9.9_amd64.deb
+dpkg -i apt-transport-https_1.0.9.9_amd64.deb
+dpkg -i apt-utils_1.0.9.9_amd64.deb
+exit
+
+/home/stahta01/devel/stahta01.github.io-git/linux/debian/notes
+

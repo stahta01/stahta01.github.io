@@ -1,0 +1,18 @@
+# nano /etc/apt/sources.list
+
+cd ~/devel/deb_source_libs
+apt-get source aptitude
+su
+apt-get build-dep aptitude
+
+exit
+
+cd ~/devel/deb_source_libs/aptitude-0.6.11
+dpkg-buildpackage -rfakeroot -uc
+
+
+cd ~/devel/deb_source_libs
+su
+dpkg -i 
+exit
+

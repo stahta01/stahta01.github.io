@@ -1,0 +1,24 @@
+# nano /etc/apt/sources.list
+
+cd ~/devel/deb_source_libs
+apt-get source python-apt-dev
+
+
+apt-get build-dep python-apt
+
+cd ~/devel/deb_source_libs/python-apt-0.9.4
+dpkg-buildpackage -rfakeroot -uc
+
+
+cd ~/devel/deb_source_libs
+su
+dpkg -i python-apt_0.9.4_amd64.deb
+dpkg -i python-apt-common_0.9.4_all.deb
+dpkg -i python-apt-dev_0.9.4_all.deb
+dpkg -i python-apt-dbg_0.9.4_amd64.deb
+dpkg -i python-apt-doc_0.9.4_all.deb
+exit
+
+NOTICE: 'python-apt' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/apt/python-apt.git
+
