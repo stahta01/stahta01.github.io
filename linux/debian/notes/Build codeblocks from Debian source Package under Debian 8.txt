@@ -1,8 +1,7 @@
 # nano /etc/apt/sources.list
 # deb-src http://ftp.us.debian.org/debian/ sid main
 # deb-src https://apt.jenslody.de/stable stable main
-
-
+# apt-get update
 
 su
 apt-get install apt-transport-https
@@ -10,26 +9,20 @@ apt-get update
 apt-get install jens-lody-debian-keyring
 exit
 
+mkdir -p ~/devel/deb_source_libs
 cd ~/devel/deb_source_libs
 apt-get source codeblocks
 
-NOTICE: 'codeblocks' packaging is maintained in the 'Git' version control system at:
-git://anonscm.debian.org/collab-maint/codeblocks.git
+su
+apt-get build-dep codeblocks
+exit
 
 cd ~/devel/deb_source_libs/codeblocks-13.12
 dpkg-buildpackage -rfakeroot -uc
 
-dpkg-checkbuilddeps: Unmet build dependencies: 
-dh-autoreconf 
-libbz2-dev 
-libhunspell-dev 
-libgamin-dev 
-libboost-dev
-
-cd ~/devel/deb_source_libs
+cd ~
+cd ./devel/deb_source_libs
 su
-libwxbase2.8-0
-libwxgtk2.8-0
 dpkg -i libwxbase2.8-0_2.8.12.1+dfsg2-2_amd64.deb
 dpkg -i libwxgtk2.8-0_2.8.12.1+dfsg2-2_amd64.deb
 
@@ -47,6 +40,9 @@ dpkg -i codeblocks-contrib-dbg_13.12-3_amd64.deb
 
 exit
 
+NOTICE: 'codeblocks' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/collab-maint/codeblocks.git
+
 
 Needed to build Code::Blocks SVN using Code::Blocks
 dpkg -i wx2.8-headers_2.8.12.1+dfsg2-2_amd64.deb
@@ -58,9 +54,6 @@ cd ~/devel/deb_source_libs
 apt-get source codeblocks
 
 cd ~/devel/deb_source_libs/codeblocks-13.12svn10234
-
-
-
-
-
+fakeroot debian/rules clean 
+fakeroot debian/rules build
 
