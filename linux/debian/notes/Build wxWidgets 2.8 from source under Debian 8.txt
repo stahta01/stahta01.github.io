@@ -12,7 +12,7 @@ apt-get install libglu1-mesa-dev
 apt-get build-dep wxwidgets2.8
 exit
 
-cd /home/stahta01/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
+cd ~/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
 dpkg-buildpackage -rfakeroot -uc
 
 cd ~/devel/deb_source_libs
