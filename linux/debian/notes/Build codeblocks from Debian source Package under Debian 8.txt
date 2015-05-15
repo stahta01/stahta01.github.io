@@ -1,59 +1,54 @@
-# nano /etc/apt/sources.list
-# deb-src http://ftp.us.debian.org/debian/ sid main
-# deb-src https://apt.jenslody.de/stable stable main
-# apt-get update
+# Steps to build Code::Blocks version 13.12 linked with wxGTK3 under Debian 8.0 "Jessie"
+# I am doing this to learn how to build deb files
+# If you just want to build Code::Blocks; the bootstrap, configure, and make method is better.
+# The only thing nice about this way is the "apt-get build-dep codeblocks" installs the needs debs for building.
 
+
+# Add Code::Blocks source location needed for "apt-get source codeblocks"
 su
-apt-get install apt-transport-https
+# edit the file /etc/apt/sources.list
+nano /etc/apt/sources.list
+# add the next line using the editor
+deb-src http://ftp.us.debian.org/debian/ sid main
 apt-get update
-apt-get install jens-lody-debian-keyring
 exit
 
+# Downloads and unpacks the debian source files
 mkdir -p ~/devel/deb_source_libs
 cd ~/devel/deb_source_libs
 apt-get source codeblocks
 
+# Installs the packages needed to build Code::Blocks from source
+# It installs wxGTK 3.0 instead of wxGTK 2.8; Code::Blocks currently has more bugs when linked with wxGTK 3.0.
 su
 apt-get build-dep codeblocks
 exit
 
+# Builds Code::Blocks deb files
 cd ~/devel/deb_source_libs/codeblocks-13.12
 dpkg-buildpackage -rfakeroot -uc
 
 cd ~
 cd ./devel/deb_source_libs
 su
-dpkg -i libwxbase2.8-0_2.8.12.1+dfsg2-2_amd64.deb
-dpkg -i libwxgtk2.8-0_2.8.12.1+dfsg2-2_amd64.deb
+# note the deb file names change with time recently the ending "-3.1_amd64.deb" was changed from "-3_amd64.deb"
+dpkg -i libcodeblocks0_13.12-3.1_amd64.deb
+dpkg -i codeblocks-common_13.12-3.1_all.deb
+dpkg -i codeblocks_13.12-3.1_amd64.deb
+dpkg -i codeblocks-dev_13.12-3.1_amd64.deb
+dpkg -i libwxsmithlib0_13.12-3.1_amd64.deb
+dpkg -i libwxsmithlib-dev_13.12-3.1_amd64.deb
+dpkg -i libwxsmithlib0-dev_13.12-3.1_amd64.deb
 
-dpkg -i libcodeblocks0_13.12-3_amd64.deb
-dpkg -i codeblocks-common_13.12-3_all.deb
-dpkg -i codeblocks_13.12-3_amd64.deb
-dpkg -i codeblocks-dev_13.12-3_amd64.deb
-dpkg -i libwxsmithlib0_13.12-3_amd64.deb
-dpkg -i libwxsmithlib-dev_13.12-3_amd64.deb
-dpkg -i libwxsmithlib0-dev_13.12-3_amd64.deb
-
-dpkg -i codeblocks-contrib_13.12-3_amd64.deb
-dpkg -i codeblocks-dbg_13.12-3_amd64.deb
-dpkg -i codeblocks-contrib-dbg_13.12-3_amd64.deb
+dpkg -i codeblocks-contrib_13.12-3.1_amd64.deb
+dpkg -i codeblocks-dbg_13.12-3.1_amd64.deb
+dpkg -i codeblocks-contrib-dbg_13.12-3.1_amd64.deb
 
 exit
 
+
+# Information notes Only Below
+
 NOTICE: 'codeblocks' packaging is maintained in the 'Git' version control system at:
 git://anonscm.debian.org/collab-maint/codeblocks.git
-
-
-Needed to build Code::Blocks SVN using Code::Blocks
-dpkg -i wx2.8-headers_2.8.12.1+dfsg2-2_amd64.deb
-dpkg -i libwxbase2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
-dpkg -i libwxgtk2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
-
-
-cd ~/devel/deb_source_libs
-apt-get source codeblocks
-
-cd ~/devel/deb_source_libs/codeblocks-13.12svn10234
-fakeroot debian/rules clean 
-fakeroot debian/rules build
 
