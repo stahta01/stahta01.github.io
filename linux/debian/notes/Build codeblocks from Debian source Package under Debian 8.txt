@@ -1,4 +1,4 @@
-# Steps to build Code::Blocks version 13.12 linked with wxGTK3 under Debian 8.0 "Jessie"
+# Steps to build Code::Blocks version 13.12 linked with wxGTK3.0 under Debian 8.0 "Jessie"
 # I am doing this to learn how to build deb files
 # If you just want to build Code::Blocks; the bootstrap, configure, and make method is better.
 # The only thing nice about this way is the "apt-get build-dep codeblocks" installs the needs debs for building.

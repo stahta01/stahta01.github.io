@@ -1,10 +1,20 @@
-# nano /etc/apt/sources.list
-# deb-src https://apt.jenslody.de/stable stable main
-# apt-get update
+# Steps to build Code::Blocks recent nightly linked with wxGTK2.8 under Debian 8.0 "Jessie" using jenslody repo.
+# I am doing this to learn how to build deb files
+# If you just want to build Code::Blocks; the bootstrap, configure, and make method is better.
 
+
+# Add Code::Blocks source location needed for "apt-get source codeblocks"
 su
+# edit the file /etc/apt/sources.list
+nano /etc/apt/sources.list
+# add the next two lines using the editor
+deb     https://apt.jenslody.de/stable stable main
+deb-src https://apt.jenslody.de/stable stable main
+
+# Installs the https protocal for apt needed when using jenslody repo.
 apt-get install apt-transport-https
 apt-get update
+# Installing jens-lody-debian-keyring results in less future warnings
 apt-get install jens-lody-debian-keyring
 exit
 
@@ -12,55 +22,55 @@ mkdir -p ~/devel/deb_source_libs
 cd ~/devel/deb_source_libs
 apt-get source codeblocks
 
-su
-apt-get build-dep codeblocks
-exit
-
-cd ~/devel/deb_source_libs/codeblocks-13.12
-dpkg-buildpackage -rfakeroot -uc
-
-cd ~
-cd ./devel/deb_source_libs
-su
-dpkg -i libwxbase2.8-0_2.8.12.1+dfsg2-2_amd64.deb
-dpkg -i libwxgtk2.8-0_2.8.12.1+dfsg2-2_amd64.deb
-
-dpkg -i libcodeblocks0_13.12-3.1_amd64.deb
-dpkg -i codeblocks-common_13.12-3.1_all.deb
-dpkg -i codeblocks_13.12-3.1_amd64.deb
-dpkg -i codeblocks-dev_13.12-3.1_amd64.deb
-dpkg -i libwxsmithlib0_13.12-3.1_amd64.deb
-dpkg -i libwxsmithlib-dev_13.12-3.1_amd64.deb
-dpkg -i libwxsmithlib0-dev_13.12-3.1_amd64.deb
-
-dpkg -i codeblocks-contrib_13.12-3.1_amd64.deb
-dpkg -i codeblocks-dbg_13.12-3.1_amd64.deb
-dpkg -i codeblocks-contrib-dbg_13.12-3.1_amd64.deb
-
-exit
-
-NOTICE: 'codeblocks' packaging is maintained in the 'Git' version control system at:
-git://anonscm.debian.org/collab-maint/codeblocks.git
-
-
-Needed to build Code::Blocks SVN using Code::Blocks
-dpkg -i wx2.8-headers_2.8.12.1+dfsg2-2_amd64.deb
-dpkg -i libwxbase2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
-dpkg -i libwxgtk2.8-dev_2.8.12.1+dfsg2-2_amd64.deb
-
-
-cd ~/devel/deb_source_libs
-apt-get source codeblocks
-
+# Verify that wxWidgets (wxGTK) 2.8 is in the list
 wx-config --list
-# Change to wxGTK 2.8
+# Change to wxGTK 2.8; the build currently errors out using wxGTK 3.0
 update-alternatives --config wx-config
 
 cd ~/devel/deb_source_libs/codeblocks-13.12svn10234
 fakeroot debian/rules clean 
 fakeroot debian/rules build
+fakeroot debian/rules binary
+
+cd ~
+cd ./devel/deb_source_libs
+su
+apt-get install xterm xbitmaps
+
+dpkg -i codeblocks-common_13.12svn10234-1_all.deb
+dpkg -i codeblocks-additional-common_13.12svn10234-1_all.deb
+dpkg -i codeblocks-contrib-common_13.12svn10234-1_all.deb
+
+dpkg -i libcodeblocks0_13.12svn10234-1_amd64.deb   
+dpkg -i codeblocks_13.12svn10234-1_amd64.deb
+
+# The next line installs two debs at once since they depend on each other
+dpkg -i codeblocks-headers_13.12svn10234-1_all.deb codeblocks-dev_13.12svn10234-1_amd64.deb
 
 
+dpkg -i libwxsmithlib0_13.12svn10234-1_amd64.deb
+dpkg -i wxsmith-dev_13.12svn10234-1_amd64.deb
+dpkg -i libwxsmithlib0-dev_13.12svn10234-1_amd64.deb
+dpkg -i wxsmith-headers_13.12svn10234-1_all.deb                # wxsmith-headers depends on wxsmith-dev
+
+
+dpkg -i codeblocks-libwxcontrib0_13.12svn10234-1_amd64.deb
+dpkg -i codeblocks-contrib_13.12svn10234-1_amd64.deb
+
+dpkg -i codeblocks-dbg_13.12svn10234-1_amd64.deb
+dpkg -i codeblocks-contrib-dbg_13.12svn10234-1_amd64.deb
+
+
+dpkg -i codeblocks-wxcontrib-dev_13.12svn10234-1_amd64.deb
+dpkg -i codeblocks-wxcontrib-headers_13.12svn10234-1_all.deb   # codeblocks-wxcontrib-headers depends on codeblocks-wxcontrib-dev
+
+dpkg -i codeblocks-additional_13.12svn10234-1_amd64.deb
+dpkg -i codeblocks-additional-dbg_13.12svn10234-1_amd64.deb
+
+exit
+
+# Information notes Only Below
+I got the below message during the clean step.
 src/plugins/headerguard/Makefile.am:1: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
 
 
