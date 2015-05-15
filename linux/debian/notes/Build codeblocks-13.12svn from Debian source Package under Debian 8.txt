@@ -1,6 +1,7 @@
 # Steps to build Code::Blocks recent nightly linked with wxGTK2.8 under Debian 8.0 "Jessie" using jenslody repo.
 # I am doing this to learn how to build deb files
 # If you just want to build Code::Blocks; the bootstrap, configure, and make method is better.
+# But, this way does have the advantage of being able to install the deb files.
 
 
 # Add Code::Blocks source location needed for "apt-get source codeblocks"
@@ -22,10 +23,14 @@ mkdir -p ~/devel/deb_source_libs
 cd ~/devel/deb_source_libs
 apt-get source codeblocks
 
+# You can now comment out the two lines added to /etc/apt/sources.list
+
 # Verify that wxWidgets (wxGTK) 2.8 is in the list
 wx-config --list
 # Change to wxGTK 2.8; the build currently errors out using wxGTK 3.0
+su
 update-alternatives --config wx-config
+exit
 
 cd ~/devel/deb_source_libs/codeblocks-13.12svn10234
 fakeroot debian/rules clean 
@@ -35,6 +40,7 @@ fakeroot debian/rules binary
 cd ~
 cd ./devel/deb_source_libs
 su
+# I do NOT like xterm so; I remove it very often; so, I need to add it back to install one of the deb files.
 apt-get install xterm xbitmaps
 
 dpkg -i codeblocks-common_13.12svn10234-1_all.deb
