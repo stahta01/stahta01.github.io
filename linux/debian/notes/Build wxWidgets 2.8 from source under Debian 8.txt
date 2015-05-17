@@ -1,5 +1,13 @@
-# nano /etc/apt/sources.list
+# Add wxWidgets source location needed for "apt-get source wxwidgets2.8"
+su
+# edit the file /etc/apt/sources.list
+nano /etc/apt/sources.list
+# add the next line using the editor
 deb-src http://debian.cse.msu.edu/debian/ sid main
+
+apt-get update
+exit
+
 
 mkdir -p ~/devel/deb_source_libs
 
@@ -7,10 +15,15 @@ cd ~/devel/deb_source_libs
 apt-get source wxwidgets2.8
 
 su
+# add the packages needed to build wxwidgets2.8
+# I have only tested using libgl1-mesa-dev and libglu1-mesa-dev
+# The other version of the libs should work; but, not sure.
 apt-get install libgl1-mesa-dev 
 apt-get install libglu1-mesa-dev
 apt-get build-dep wxwidgets2.8
 exit
+
+# You can now comment out the line added to /etc/apt/sources.list
 
 cd ~/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
 dpkg-buildpackage -rfakeroot -uc
