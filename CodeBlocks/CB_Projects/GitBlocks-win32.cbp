@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GitBlocks  wx2.8.x - Win32" />
+		<Option pch_mode="2" />
+		<Option compiler="i686-w64-mingw32" />
+		<Build>
+			<Target title="default">
+				<Option output="GitBlocks.so" prefix_auto="0" extension_auto="0" />
+				<Option type="3" />
+				<Option compiler="i686-w64-mingw32" />
+				<Option host_application="codeblocks" />
+				<Option run_host_application_in_terminal="0" />
+				<Compiler>
+					<Add option="-ansi" />
+					<Add option="-g" />
+					<Add option="`$(WX_CONFIG) --cflags`" />
+					<Add option="`$(WX_CONFIG) --cxxflags`" />
+					<Add directory="$(#CB.include)" />
+					<Add directory="$(#CB)/sdk/wxscintilla/include" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="`$(WX_CONFIG) --libs`" />
+					<Add library="codeblocks" />
+					<Add directory="$(#CB)/devel" />
+				</Linker>
+			</Target>
+			<Environment>
+				<Variable name="WX_CONFIG" value="/usr/i686-w64-mingw32/bin/wx-config --version=2.8" />
+			</Environment>
+		</Build>
+		<Unit filename="AUTHORS" />
+		<Unit filename="COPYING" />
+		<Unit filename="ChangeLog" />
+		<Unit filename="INSTALL" />
+		<Unit filename="Makefile.am" />
+		<Unit filename="NEWS" />
+		<Unit filename="README" />
+		<Unit filename="bootstrap" />
+		<Unit filename="config.h.in" />
+		<Unit filename="configure.ac" />
+		<Unit filename="include/CloneDialog.h" />
+		<Unit filename="include/CommitAllDialog.h" />
+		<Unit filename="include/CommitDialog.h" />
+		<Unit filename="include/GitBlocks.h" />
+		<Unit filename="include/NewBranchDialog.h" />
+		<Unit filename="include/RemoveDialog.h" />
+		<Unit filename="include/RenameDialog.h" />
+		<Unit filename="include/SwitchBranchDialog.h" />
+		<Unit filename="manifest.xml" />
+		<Unit filename="src/CloneDialog.cpp" />
+		<Unit filename="src/CommitAllDialog.cpp" />
+		<Unit filename="src/CommitDialog.cpp" />
+		<Unit filename="src/GitBlocks.cpp" />
+		<Unit filename="src/NewBranchDialog.cpp" />
+		<Unit filename="src/RemoveDialog.cpp" />
+		<Unit filename="src/RenameDialog.cpp" />
+		<Unit filename="src/SwitchBranchDialog.cpp" />
+		<Unit filename="wxsmith/CloneDialog.wxs" />
+		<Unit filename="wxsmith/CommitAllDialog.wxs" />
+		<Unit filename="wxsmith/CommitDialog.wxs" />
+		<Unit filename="wxsmith/NewBranchDialog.wxs" />
+		<Unit filename="wxsmith/RemoveDialog.wxs" />
+		<Unit filename="wxsmith/RenameDialog.wxs" />
+		<Unit filename="wxsmith/SwitchBranchDialog.wxs" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxDialog wxs="wxsmith/CommitAllDialog.wxs" src="src/CommitAllDialog.cpp" hdr="include/CommitAllDialog.h" fwddecl="0" i18n="1" name="CommitAllDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/CloneDialog.wxs" src="src/CloneDialog.cpp" hdr="include/CloneDialog.h" fwddecl="0" i18n="1" name="CloneDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/CommitDialog.wxs" src="src/CommitDialog.cpp" hdr="include/CommitDialog.h" fwddecl="0" i18n="1" name="CommitDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/NewBranchDialog.wxs" src="src/NewBranchDialog.cpp" hdr="include/NewBranchDialog.h" fwddecl="0" i18n="1" name="NewBranchDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/RemoveDialog.wxs" src="src/RemoveDialog.cpp" hdr="include/RemoveDialog.h" fwddecl="0" i18n="1" name="RemoveDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/RenameDialog.wxs" src="src/RenameDialog.cpp" hdr="include/RenameDialog.h" fwddecl="0" i18n="1" name="RenameDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/SwitchBranchDialog.wxs" src="src/SwitchBranchDialog.cpp" hdr="include/SwitchBranchDialog.h" fwddecl="0" i18n="1" name="SwitchBranchDialog" language="CPP" />
+				</resources>
+			</wxsmith>
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
