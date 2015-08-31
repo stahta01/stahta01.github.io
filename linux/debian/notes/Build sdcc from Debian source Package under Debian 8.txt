@@ -1,17 +1,22 @@
 # nano /etc/apt/sources.list
 
-cd ~/devel/deb_source_libs
+cd ~/devel/deb_source_paks
 apt-get source sdcc
+
 su
 apt-get build-dep sdcc
 exit
 
-cd ~/devel/deb_source_libs/sdcc-3.4.0+dfsg
+cd sdcc-3.4.0+dfsg
 dpkg-buildpackage -rfakeroot -uc
 
 
-cd ~/devel/deb_source_libs
+cd ..
 su
-dpkg -i 
+dpkg -i sdcc_3.4.0+dfsg-2_amd64.deb
 exit
+
+
+NOTICE: 'sdcc' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/collab-maint/sdcc.git
 

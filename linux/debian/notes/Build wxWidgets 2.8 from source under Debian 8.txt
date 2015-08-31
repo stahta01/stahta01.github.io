@@ -9,9 +9,9 @@ apt-get update
 exit
 
 
-mkdir -p ~/devel/deb_source_libs
+mkdir -p ~/devel/deb_source_paks
 
-cd ~/devel/deb_source_libs
+cd ~/devel/deb_source_paks
 apt-get source wxwidgets2.8
 
 su
@@ -25,10 +25,10 @@ exit
 
 # You can now comment out the line added to /etc/apt/sources.list
 
-cd ~/devel/deb_source_libs/wxwidgets2.8-2.8.12.1+dfsg2
+cd wxwidgets2.8-2.8.12.1+dfsg2
 dpkg-buildpackage -rfakeroot -uc
 
-cd ~/devel/deb_source_libs
+cd ..
 su
 
 # Needed before installing wxGTK debs

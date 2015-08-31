@@ -14,8 +14,8 @@ apt-get update
 exit
 
 # Downloads and unpacks the debian source files
-mkdir -p ~/devel/deb_source_libs
-cd ~/devel/deb_source_libs
+mkdir -p ~/devel/deb_source_paks
+cd ~/devel/deb_source_paks
 apt-get source codeblocks
 
 # Installs the packages needed to build Code::Blocks from source
@@ -25,11 +25,11 @@ apt-get build-dep codeblocks
 exit
 
 # Builds Code::Blocks deb files
-cd ~/devel/deb_source_libs/codeblocks-13.12
+cd codeblocks-13.12
 dpkg-buildpackage -rfakeroot -uc
 
-cd ~
-cd ./devel/deb_source_libs
+
+cd ..
 su
 # note the deb file names change with time recently the ending "-3.1_amd64.deb" was changed from "-3_amd64.deb"
 dpkg -i libcodeblocks0_13.12-3.1_amd64.deb

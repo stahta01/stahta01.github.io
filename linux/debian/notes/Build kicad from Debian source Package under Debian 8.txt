@@ -1,14 +1,14 @@
 # nano /etc/apt/sources.list
 # deb-src http://ftp.us.debian.org/debian/ sid main
 
-cd ~/devel/deb_source_libs
+cd ~/devel/deb_source_paks
 apt-get source kicad
 
-cd ~/devel/deb_source_libs/kicad-0.20141025+bzr4029
+cd kicad-0.20141025+bzr4029
 dpkg-buildpackage -rfakeroot -uc
 
 
-cd ~/devel/deb_source_libs
+cd ..
 su
 dpkg -i 
 exit

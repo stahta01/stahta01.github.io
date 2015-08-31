@@ -2,33 +2,18 @@
 # deb-src http://archive.ubuntu.com/ubuntu/ devel universe
 # deb-src http://debian.cse.msu.edu/debian/ sid main
 
-cd ~/devel/deb_source_libs
+cd ~/devel/deb_source_paks
 apt-get source rapidsvn
 
-cd ~/devel/deb_source_libs/rapidsvn-0.12.1dfsg
+which wx-config
+wx-config --list
+# Change to wxGTK 3.0
+su
+update-alternatives --config wx-config
+exit
+
+cd rapidsvn-0.12.1dfsg
 dpkg-buildpackage -rfakeroot -uc
-
-dpkg-checkbuilddeps: Unmet build dependencies: 
-libneon27-gnutls-dev 
-libsvn-dev (>= 1.4.4) 
-libsasl2-dev 
-libwxgtk3.0-dev 
-xsltproc 
-doxygen 
-autotools-dev 
-hardening-wrapper
-
-Edit the package to try to use libwxgtk2.8-dev in the future 
-
-cd ~/devel/deb_source_libs/rapidsvn-0.12.1dfsg
-dpkg-buildpackage -rfakeroot -uc -d
-
-make[2]: Leaving directory '/home/stahta01/devel/deb_source_libs/rapidsvn-0.12.1dfsg/src'
-Makefile:299: recipe for target 'all-recursive' failed
-make[1]: *** [all-recursive] Error 1
-make[1]: Leaving directory '/home/stahta01/devel/deb_source_libs/rapidsvn-0.12.1dfsg'
-debian/rules:67: recipe for target 'build-stamp' failed
-make: *** [build-stamp] Error 2
 
 
 cd ~/devel/deb_source_libs

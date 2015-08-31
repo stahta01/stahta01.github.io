@@ -1,14 +1,14 @@
 # nano /etc/apt/sources.list
 # deb-src http://debian.cse.msu.edu/debian/ sid main
 
-cd ~/devel/deb_source_libs
+cd ~/devel/deb_source_paks
 apt-get source startupmanager
 
-cd ~/devel/deb_source_libs/startupmanager-1.9.13
+cd startupmanager-1.9.13
 dpkg-buildpackage -rfakeroot -uc
 
 
-cd ~/devel/deb_source_libs
+cd ..
 su
 dpkg -i startupmanager_1.9.13-8_all.deb
 exit

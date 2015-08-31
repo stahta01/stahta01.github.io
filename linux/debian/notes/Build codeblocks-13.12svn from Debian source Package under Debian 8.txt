@@ -9,8 +9,9 @@ su
 # edit the file /etc/apt/sources.list
 nano /etc/apt/sources.list
 # add the next two lines using the editor
-deb     https://apt.jenslody.de/stable stable main
-deb-src https://apt.jenslody.de/stable stable main
+deb [arch=amd64,i386] https://apt.jenslody.de/stable jessie main
+deb-src https://apt.jenslody.de/stable jessie main
+
 
 # Installs the https protocal for apt needed when using jenslody repo.
 apt-get install apt-transport-https
@@ -19,64 +20,110 @@ apt-get update
 apt-get install jens-lody-debian-keyring
 exit
 
-mkdir -p ~/devel/deb_source_libs
-cd ~/devel/deb_source_libs
+mkdir -p ~/devel/deb_source_paks
+cd ~/devel/deb_source_paks
 apt-get source codeblocks
 
 # You can now comment out the two lines added to /etc/apt/sources.list
 
-# Verify that wxWidgets (wxGTK) 2.8 is in the list
+# Verify that wxWidgets (wxGTK) 2.8 or 3.0 is in the list
 wx-config --list
-# Change to wxGTK 2.8; the build currently errors out using wxGTK 3.0
 su
 update-alternatives --config wx-config
 exit
 
-cd ~/devel/deb_source_libs/codeblocks-13.12svn10234
+su
+apt-get build-dep codeblocks
+exit
+
+cd codeblocks-13.12svn10396
 fakeroot debian/rules clean 
 fakeroot debian/rules build
 fakeroot debian/rules binary
 
-cd ~
-cd ./devel/deb_source_libs
+# Things to try and see if they work.
+# Option -nc means "no clean"
+# Option -uc means 
+dpkg-buildpackage -rfakeroot
+dpkg-buildpackage -rfakeroot -uc -nc    # Build all
+dpkg-buildpackage -S -rfakeroot -uc -nc # Source Build
+dpkg-buildpackage -A -rfakeroot -uc -nc # Arch Build
+dpkg-buildpackage -B -rfakeroot -uc -nc # Binary Build
+
+cd ..
 su
+# cd /home/stahta01/devel/deb_source_paks
 # I do NOT like xterm so; I remove it very often; so, I need to add it back to install one of the deb files.
 apt-get install xterm xbitmaps
 
-dpkg -i codeblocks-common_13.12svn10234-1_all.deb
-dpkg -i codeblocks-additional-common_13.12svn10234-1_all.deb
-dpkg -i codeblocks-contrib-common_13.12svn10234-1_all.deb
+dpkg -i codeblocks-common_13.12svn10406-1_all.deb
+dpkg -i codeblocks-contrib-common_13.12svn10406-1_all.deb
 
-dpkg -i libcodeblocks0_13.12svn10234-1_amd64.deb   
-dpkg -i codeblocks_13.12svn10234-1_amd64.deb
+dpkg: dependency problems prevent configuration of libcodeblocks0:
+ libcodeblocks0 depends on lib64gcc1 (>= 1:4.1.1).
+ libcodeblocks0 depends on lib64stdc++6 (>= 4.9).
+ libcodeblocks0 depends on libc6-amd64 (>= 2.15).
+
+
+# Try to do these both at the same time to avoid weird depends error above.
+dpkg -i libcodeblocks0_13.12svn10406-1_amd64.deb  codeblocks_13.12svn10406-1_amd64.deb
 
 # The next line installs two debs at once since they depend on each other
-dpkg -i codeblocks-headers_13.12svn10234-1_all.deb codeblocks-dev_13.12svn10234-1_amd64.deb
+dpkg -i codeblocks-headers_13.12svn10406-1_all.deb codeblocks-dev_13.12svn10406-1_amd64.deb
 
 
-dpkg -i libwxsmithlib0_13.12svn10234-1_amd64.deb
-dpkg -i wxsmith-dev_13.12svn10234-1_amd64.deb
-dpkg -i libwxsmithlib0-dev_13.12svn10234-1_amd64.deb
-dpkg -i wxsmith-headers_13.12svn10234-1_all.deb                # wxsmith-headers depends on wxsmith-dev
+# weird depends error above.
+dpkg -i libwxsmithlib0_13.12svn10406-1_amd64.deb
+dpkg -i codeblocks-libwxcontrib0_13.12svn10406-1_amd64.deb
+dpkg -i codeblocks-contrib_13.12svn10406-1_amd64.deb
+
+dpkg -i wxsmith-dev_13.12svn10406-1_amd64.deb
+dpkg -i libwxsmithlib0-dev_13.12svn10406-1_amd64.deb
+dpkg -i wxsmith-headers_13.12svn10406-1_all.deb                # wxsmith-headers depends on wxsmith-dev
+
+dpkg -i codeblocks-dbg_13.12svn10406-1_amd64.deb
+dpkg -i codeblocks-contrib-dbg_13.12svn10406-1_amd64.deb
 
 
-dpkg -i codeblocks-libwxcontrib0_13.12svn10234-1_amd64.deb
-dpkg -i codeblocks-contrib_13.12svn10234-1_amd64.deb
-
-dpkg -i codeblocks-dbg_13.12svn10234-1_amd64.deb
-dpkg -i codeblocks-contrib-dbg_13.12svn10234-1_amd64.deb
-
-
-dpkg -i codeblocks-wxcontrib-dev_13.12svn10234-1_amd64.deb
-dpkg -i codeblocks-wxcontrib-headers_13.12svn10234-1_all.deb   # codeblocks-wxcontrib-headers depends on codeblocks-wxcontrib-dev
-
-dpkg -i codeblocks-additional_13.12svn10234-1_amd64.deb
-dpkg -i codeblocks-additional-dbg_13.12svn10234-1_amd64.deb
+dpkg -i codeblocks-wxcontrib-dev_13.12svn10406-1_amd64.deb
+dpkg -i codeblocks-wxcontrib-headers_13.12svn10406-1_all.deb   # codeblocks-wxcontrib-headers depends on codeblocks-wxcontrib-dev
 
 exit
 
 # Information notes Only Below
 I got the below message during the clean step.
 src/plugins/headerguard/Makefile.am:1: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+
+From http://forums.codeblocks.org/index.php/topic,20479.msg139355.html#msg139355
+#!/bin/bash
+#
+# Script to install Code::Blocks build * from local packages
+# run as follows: $ sudo ./install_cb.sh
+#
+VER='13.12'
+SVNNR='svn10379'
+CPUCFG='amd64'
+
+echo "------------------------------------------------------------------------------"
+echo "--------- Code::Blocks install script BEGIN: " codeblocks-${SVNNR}_${CPUCFG} "-------"
+echo "------------------------------------------------------------------------------"
+
+dpkg -i \
+libcodeblocks0_${VER}${SVNNR}_${CPUCFG}.deb \
+libwxsmithlib0_${VER}${SVNNR}_${CPUCFG}.deb \
+codeblocks_${VER}${SVNNR}_${CPUCFG}.deb \
+codeblocks-common_${VER}${SVNNR}_all.deb \
+codeblocks-libwxcontrib0_${VER}${SVNNR}_${CPUCFG}.deb \
+codeblocks-contrib-common_${VER}${SVNNR}_all.deb \
+codeblocks-contrib_${VER}${SVNNR}_${CPUCFG}.deb
+
+apt-get -f install
+dpkg-reconfigure codeblocks
+dpkg-reconfigure codeblocks-contrib
+
+echo "------------------------------------------------------------------------------"
+echo "--------- Code::Blocks install script END: Please check for possible errors --"
+echo "------------------------------------------------------------------------------"
+
 
 
