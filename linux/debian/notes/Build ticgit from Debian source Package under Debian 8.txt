@@ -1,0 +1,21 @@
+# nano /etc/apt/sources.list
+
+cd ~/devel/deb_source_paks
+apt-get source ticgit
+
+su
+apt-get build-dep ticgit
+exit
+
+cd 
+dpkg-buildpackage -rfakeroot -uc
+
+
+cd ..
+su
+dpkg -i 
+exit
+
+NOTICE: 'ticgit' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/users/michi/ticgit.git
+

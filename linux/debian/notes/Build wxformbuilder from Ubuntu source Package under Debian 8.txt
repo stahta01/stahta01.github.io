@@ -1,0 +1,52 @@
+http://packages.ubuntu.com/vivid/wxformbuilder
+
+# nano /etc/apt/sources.list
+# deb http://archive.ubuntu.com/ubuntu/ trusty universe
+# deb-src http://archive.ubuntu.com/ubuntu/ trusty universe
+# apt-get update
+
+su
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 40976EAF437D05B5 3B4FE6ACC0B21F32
+apt-get update
+exit
+
+cd ~/devel/deb_source_paks
+apt-get source wxformbuilder
+
+# Verify that wxWidgets (wxGTK) 2.8 is in the list
+# The build errors out using wxGTK 3
+wx-config --list
+su
+update-alternatives --config wx-config
+exit
+
+cd wxformbuilder-3.1.59
+dpkg-buildpackage -rfakeroot -uc
+
+
+
+su
+cd /home/stahta01/devel/deb_source_paks
+dpkg -i wxformbuilder_3.1.59-0ubuntu3_amd64.deb
+exit
+
+From http://askubuntu.com/questions/445487/which-ubuntu-version-is-equivalent-to-debian-squeeze
+15.04  vivid      jessie / sid
+14.10  utopic     jessie / sid
+14.04  trusty     jessie / sid
+13.10  saucy      wheezy / sid
+13.04  raring     wheezy / sid
+12.10  quantal    wheezy / sid
+12.04  precise    wheezy / sid
+11.10  oneiric    wheezy / sid
+11.04  natty      squeeze / sid
+10.10  maverick   squeeze / sid
+10.04  lucid      squeeze / sid
+
+Unpacking wxformbuilder (3.1.59-0ubuntu3) ...
+dpkg: dependency problems prevent configuration of wxformbuilder:
+ wxformbuilder depends on lib64gcc1 (>= 1:4.1.1).
+ wxformbuilder depends on lib64stdc++6 (>= 4.9).
+ wxformbuilder depends on libc6-amd64 (>= 2.14).
+
+

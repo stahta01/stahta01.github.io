@@ -1,0 +1,119 @@
+
+These steps failed on 21Jun2015 with this final error
+/home/stahta01/devel/deb_source_paks/netbeans-8.0.2+dfsg1/nbbuild/build.xml:465: The following error occurred while executing this line:
+/home/stahta01/devel/deb_source_paks/netbeans-8.0.2+dfsg1/nbbuild/templates/common.xml:220: Compile failed; see the compiler error output for details.
+
+Total time: 5 minutes 47 seconds
+debian/rules:50: recipe for target 'override_dh_auto_build' failed
+make[1]: *** [override_dh_auto_build] Error 1
+make[1]: Leaving directory '/home/stahta01/devel/deb_source_paks/netbeans-8.0.2+dfsg1'
+debian/rules:46: recipe for target 'build' failed
+make: *** [build] Error 2
+
+
+https://packages.debian.org/sid/netbeans
+https://packages.debian.org/jessie-backports/libopenjfx-java
+
+# Add source location needed for "apt-get source netbeans"
+su
+# edit the file /etc/apt/sources.list
+nano /etc/apt/sources.list
+# add the next line using the editor
+deb-src http://debian.cse.msu.edu/debian/ sid main
+
+apt-get update
+exit
+
+cd ~/devel/deb_source_paks
+apt-get source libcglib-java
+
+su
+# add the packages needed to build libcglib-java
+apt-get build-dep libcglib-java
+exit
+
+cd cglib-2.2.2+dfsg2
+dpkg-buildpackage -rfakeroot -uc
+cd ..
+
+su
+dpkg -i libcglib-java_2.2.2+dfsg2-2_all.deb
+exit
+
+cd ~/devel/deb_source_paks
+apt-get source libjsch-agent-proxy-java
+
+su
+# add the packages needed to build
+apt-get build-dep libjsch-agent-proxy-java
+exit
+
+cd jsch-agent-proxy-0.0.8
+dpkg-buildpackage -rfakeroot -uc
+cd ..
+
+su
+dpkg -i libjsch-agent-proxy-java_0.0.8-1_all.deb
+exit
+
+cd ~/devel/deb_source_paks
+apt-get source netbeans
+
+
+# Try to install package needed to build netbeans
+su
+apt-get install libopenjfx-java
+# If the install above fails, add debian binary location needed for "apt-get install libopenjfx-java"
+# edit the file /etc/apt/sources.list
+nano /etc/apt/sources.list
+# add or uncomment the next line using the editor
+apt-get update
+deb http://ftp.debian.org/debian/ jessie-backports main
+apt-get install libopenjfx-java
+# you can now comment out the line once more
+nano /etc/apt/sources.list
+apt-get update
+exit
+
+
+
+su
+# add the packages needed to build netbeans
+apt-get build-dep netbeans
+exit
+
+# You can now comment out the deb-src line added to /etc/apt/sources.list
+
+
+cd netbeans-8.0.2+dfsg1
+dpkg-buildpackage -rfakeroot -uc
+/home/stahta01/devel/deb_source_paks/netbeans-8.0.2+dfsg1/nbbuild/build.xml:465: The following error occurred while executing this line:
+/home/stahta01/devel/deb_source_paks/netbeans-8.0.2+dfsg1/nbbuild/templates/common.xml:220: Compile failed; see the compiler error output for details.
+
+Total time: 5 minutes 47 seconds
+debian/rules:50: recipe for target 'override_dh_auto_build' failed
+make[1]: *** [override_dh_auto_build] Error 1
+make[1]: Leaving directory '/home/stahta01/devel/deb_source_paks/netbeans-8.0.2+dfsg1'
+debian/rules:46: recipe for target 'build' failed
+make: *** [build] Error 2
+
+cd ..
+
+su
+dpkg -i 
+exit
+
+
+E: Build-Depends dependency for netbeans cannot be satisfied because candidate version of package libjsch-agent-proxy-java can't satisfy version requirements
+E: Build-Depends dependency for netbeans cannot be satisfied because the package libcglib-java cannot be found
+
+NOTICE: 'jsch-agent-proxy' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/pkg-java/jsch-agent-proxy.git
+
+NOTICE: 'libcglib-java' packaging is maintained in the 'Svn' version control system at:
+svn://anonscm.debian.org/pkg-java/trunk/cglib
+
+NOTICE: 'netbeans' packaging is maintained in the 'Git' version control system at:
+git://anonscm.debian.org/pkg-java/netbeans.git
+
+
