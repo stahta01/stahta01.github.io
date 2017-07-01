@@ -1,0 +1,48 @@
+--- a/mingw-w64-harfbuzz/PKGBUILD
++++ b/mingw-w64-harfbuzz/PKGBUILD
+@@ -5,7 +5,7 @@ _realname=harfbuzz
+ pkgbase=mingw-w64-${_realname}
+ pkgname="${MINGW_PACKAGE_PREFIX}-${_realname}"
+ pkgver=1.4.6
+-pkgrel=2
++pkgrel=3
+ pkgdesc="OpenType text shaping engine (mingw-w64)"
+ arch=('any')
+ url="https://www.freedesktop.org/wiki/Software/HarfBuzz"
+@@ -38,7 +38,22 @@ build() {
+     --build=${MINGW_CHOST} \
+     --host=${MINGW_CHOST} \
+     --enable-shared \
++    --enable-introspection \
++    --with-graphite2=yes \
++    --with-gobject
++
++  make
++
++  [[ -d "${srcdir}/build-t-${MINGW_CHOST}" ]] && rm -rf "${srcdir}/build-t-${MINGW_CHOST}"
++  mkdir -p "${srcdir}/build-t-${MINGW_CHOST}"
++  cd "${srcdir}/build-t-${MINGW_CHOST}"
++  CPPFLAGS=-DGRAPHITE2_STATIC \
++  ../${_realname}-${pkgver}/configure \
++    --prefix=${MINGW_PREFIX} \
++    --build=${MINGW_CHOST} \
++    --host=${MINGW_CHOST} \
+     --enable-static \
++    --disable-shared \
+     --enable-introspection \
+     --with-graphite2=yes \
+     --with-gobject
+@@ -49,9 +64,13 @@ build() {
+ check(){
+   cd "${srcdir}/build-${MINGW_CHOST}"
+   make check
++  cd "${srcdir}/build-t-${MINGW_CHOST}"
++  make check
+ }
+ 
+ package() {
++  cd "${srcdir}/build-t-${MINGW_CHOST}"
++  make DESTDIR="${pkgdir}" install
+   cd "${srcdir}/build-${MINGW_CHOST}"
+   make DESTDIR="${pkgdir}" install
+   install -Dm644 "${srcdir}/${_realname}-${pkgver}/COPYING" "${pkgdir}${MINGW_PREFIX}/share/licenses/${_realname}/COPYING"
