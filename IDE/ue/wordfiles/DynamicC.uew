@@ -1,0 +1,97 @@
+/L21"Dynamic C" C_LANG Line Comment = // Block Comment On = /* Block Comment Off = */ String Chars = "' File Extensions = C LIB
+/Colors = 0,8421376,8421376,8421504,255,
+/Colors Back = 16777215,16777215,16777215,16777215,16777215,
+/Colors Auto Back = 1,1,1,1,1,
+/Font Style = 0,0,0,0,0,
+/Delimiters = ~!@%^&*()-+=|\/{}[]:;"'<> ,	.?
+/Function String = "%[a-zA-Z]*)"
+/Indent Strings = "{"
+/Unindent Strings = "}"
+/C1 KEYWORDS Colors = 16711680 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
+abandon abort align asm auto
+break
+case char const continue
+debug default do double
+else enum extern
+float for
+goto
+if int interrupt interrupt_vector
+long
+return
+nodebug norst nouseix
+protected
+shared short signed size sizeof speed static struct switch
+typedef
+union unsigned
+void
+while
+__lcall__
+/C2 costatements and chains Colors = 255 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
+always_on
+cofunc costate
+firsttime
+init_on
+scofunc
+segchain
+waitfor
+waitfordone
+wfd
+yield
+/C3 Memory Storage related Colors = 33023 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
+anymem 
+bbram
+root
+useix
+xdata
+xmem
+xstring
+/C4 DIRECTIVES Colors = 32768 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
+#asm 
+#class 
+#debug #define 
+#endasm #endif #elif #error 
+#fatal #funcchain 
+#GLOBAL_INIT 
+#include #interleave #ifndef #if 
+#line #else #ifdef 
+#makechain #memmap 
+#nodebug #nointerleave #nouseix 
+#pragma #precompile 
+#undef #use #useix 
+#warns #warnt 
+#ximport 
+#zimport
+_BIOSBAUD_
+_BOARD_TYPE_
+_CPU_ID_
+CC_VER
+__DATE__
+DEBUG_RST
+__FILE__
+_FAST_RAM_
+_FLASH_
+_RAM_
+_FLASH_SIZE_
+_RAM_SIZE_
+__LINE__
+NO_BIOS
+_TARGETLESS_COMPILE_
+__TIME__
+CLOCK_DOUBLED
+DATAORG
+WATCHCODESIZE
+USE_TIMERA_PRESCALE
+USE_2NDFLASH_CODE
+OPMODE
+/C5 OPERATORS Colors = 4210816 Colors Back = 16777215 Colors Auto Back = 1 Font Style = 0
++
+-
+=
+// /
+%
+&
+>
+<
+^
+!
+|
