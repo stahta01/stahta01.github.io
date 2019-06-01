@@ -1,0 +1,28 @@
+From dd59845c5151b2cf5f2a76bf4a794d82e2955bba Mon Sep 17 00:00:00 2001
+From: Tim S <tim.stahlhut@gmail.com>
+Date: Wed, 24 Apr 2019 00:34:29 -0400
+Subject: Part of SVN263194
+
+2018-08-01  Richard Biener  <rguenther@suse.de>
+
+	PR bootstrap/86724
+	* graphite.h: Include isl/id.h and isl/space.h to allow build
+	with ISL 0.20.
+---
+ gcc/graphite.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/gcc/graphite.h b/gcc/graphite.h
+index 79793ee15bb..f92fae0feee 100644
+--- a/gcc/graphite.h
++++ b/gcc/graphite.h
+@@ -37,6 +37,8 @@ along with GCC; see the file COPYING3.  If not see
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
+ #include <isl/schedule_node.h>
++#include <isl/id.h>
++#include <isl/space.h>
+ 
+ typedef struct poly_dr *poly_dr_p;
+ 
+-- 
